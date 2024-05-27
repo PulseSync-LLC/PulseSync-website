@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.mainContainer}>
+      <div className="mainContainer">
         <span className="siteUrl">pulsesync.dev/<span className="siteRoute">HOME</span></span>
         <div className={styles.container}>
           <div className={styles.welcomeCase}>

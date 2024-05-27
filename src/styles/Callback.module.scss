@@ -1,0 +1,89 @@
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+    height: -webkit-fill-available;
+    justify-content: center;
+
+    .case {
+        transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 2px 2px 2px 25px;
+        background: #FFFDEB;
+        border-radius: 10px;
+        width: fit-content;
+
+        &:hover {
+            padding: 2px 2px 2px 35px;
+        }
+
+        .backgroundContainer {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 50px;
+            gap: 25px;
+
+            width: 454px;
+            border-radius: 9px;
+            overflow: hidden;
+
+            .userAvatar {
+                z-index: 1;
+
+                width: 88px;
+                height: 88px;
+
+                outline: 3px solid #DDF2FF;
+                border-radius: 25px;
+            }
+
+            .imgStatus {
+                z-index: 1;
+            }
+
+            span {
+                z-index: 1;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 24px;
+                text-align: center;
+
+                color: #D2E5F1;
+            }
+
+            .background {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(0deg, rgba(27, 31, 33, 0.95), rgba(27, 31, 33, 0.95));
+            }
+
+            .backgroundImg {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: -webkit-fill-available;
+                width: -webkit-fill-available;
+                object-fit: cover;
+                filter: blur(10px);
+            }
+        }
+    }
+}

@@ -23,7 +23,7 @@
 }
 
 * {
-  /* user-select: none; */
+  user-select: none;
   font-family: 'Open Runde', serif;
   color: var(--color1);
   stroke: var(--color1);
@@ -52,4 +52,12 @@ body {
 }
 .siteRoute {
   color: #AAAAAA;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  height: 100%;
 }
