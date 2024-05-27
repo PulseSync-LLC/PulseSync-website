@@ -1,0 +1,219 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  height: 100%;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 100%;
+
+    .welcomeCase {
+      transition: all 0.2s cubic-bezier(0.23, 1, 0.320, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2px 2px 2px 25px;
+      background: #EBF7FF;
+      border-radius: 10px;
+      width: 100%;
+
+      &:hover {
+        padding: 2px 2px 2px 35px;
+      }
+
+      .case {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+        gap: 20px;
+        background: linear-gradient(0deg, rgba(27, 31, 33, 0.95), rgba(27, 31, 33, 0.95)), url(../../public/img/2.png);
+        border-radius: 9px;
+        width: 100%;
+
+        .inCaseContainer {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 25px;
+          width: 100%;
+
+          span {
+            font-family: 'Open Runde';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            color: #FFFFFF;
+          }
+
+          .downloadCase {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
+            gap: 1px;
+
+            border-radius: 10px;
+            overflow: hidden;
+
+            >div {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              padding: 12px 20px;
+
+              background: #EBF7FF;
+
+              font-weight: 600;
+              font-size: 18px;
+              text-transform: uppercase;
+
+              color: #394145;
+            }
+
+            >button {
+              cursor: pointer;
+              transition: all 0.2s cubic-bezier(0.23, 1, 0.320, 1);
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              padding: 12px 20px;
+              gap: 12px;
+
+              background: #394145;
+
+              font-weight: 600;
+              font-size: 18px;
+              text-transform: uppercase;
+
+              color: #EBF7FF;
+              border: 0;
+
+              &:hover {
+                background: #EBF7FF;
+                color: #394145;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footerCase {
+      transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 2px 2px 2px 25px;
+      background: #FFFDEB;
+      border-radius: 10px;
+      width: 100%;
+
+      &:hover {
+        padding: 2px 2px 2px 35px;
+      }
+
+      .case {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 25px;
+        gap: 20px;
+        width: 100%;
+
+        background: linear-gradient(180deg, rgba(31, 30, 25, 0.95) 0%, #1B1F21 100%), url(../../public/img/1.png);
+        border-radius: 10px;
+
+        .stargazersContainer {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0px;
+          gap: 20px;
+
+          font-family: 'Open Runde';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 27px;
+          text-transform: uppercase;
+
+          color: #FFF280;
+
+
+          .avatarContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            .avatar {
+              border-radius: 50%;
+              overflow: hidden;
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+
+        .footerInfo {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          padding: 0px;
+          gap: 35px;
+
+          .footerLinks {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 10px;
+
+            .infoLinks {
+              font-family: 'Open Runde';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 19px;
+              text-transform: uppercase;
+
+              color: #FFF27F;
+            }
+
+            .links {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              padding: 0px;
+              gap: 7px;
+
+              >a {
+                font-family: 'Open Runde';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 19px;
+
+                color: #FFFDEB;
+                text-decoration: none;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

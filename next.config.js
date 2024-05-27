@@ -17,6 +17,11 @@ const nextConfig = {
                 hostname: 'cdn.discordapp.com',
                 pathname: '**',
             },
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+                pathname: '**',
+            },
         ],
     },
 
