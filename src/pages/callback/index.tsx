@@ -1,13 +1,35 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Callback.module.scss";
 
 import ImgConnect from "../../../public/authAssest/Connect.svg";
-import ImgErrorConnect from "../../../public/authAssest/ErrorConnect.svg";
+import {useRouter} from "next/router";
+import {useEffect, useState} from "react";
+import UserInterface from "@/api/interface/user.interface";
+import UserInitials from "@/api/interface/user.initials";
 
-const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Callback() {
+    const router = useRouter()
+    const [user, setUser] = useState<UserInterface>(UserInitials)
+    const getUser = async () => {
+        if (router.query.token) {
+            const res = await fetch(`http://localhost:4000/user/${router.query.id}`)
+            const j = await res.json()
+            setUser(j)
+        }
+        else {
+           await router.push("/");
+        }
+    }
+    useEffect(() => {
+        if(router.isReady) getUser()
+    }, [router.isReady])
+    useEffect(() => {
+        if(user.id !== "") {
+            console.log(user)
+            router.push(`pulsesync://callback?token=${router.query.token}`)
+        }
+    }, [user]);
     return (
         <>
             <div className="mainContainer">
@@ -15,10 +37,14 @@ export default function Home() {
                 <div className={styles.container}>
                     <div className={styles.case}>
                         <div className={styles.backgroundContainer}>
-                            <img className={styles.userAvatar} src="http://localhost:3000/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F44835662%3Fv%3D4&w=64&q=75" alt="" />
-                            <Image className={styles.imgStatus} src={ImgConnect} alt="" />
+                            <img className={styles.userAvatar}
+                                 src={user.avatar}
+                                 alt=""/>
+                            <Image className={styles.imgStatus} src={ImgConnect} alt=""/>
                             <span>Вы авторизированны вернитесь в приложение</span>
-                            <img className={styles.backgroundImg} src="http://localhost:3000/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F44835662%3Fv%3D4&w=64&q=75" alt="" />
+                            <img className={styles.backgroundImg}
+                                 src={user.avatar}
+                                 alt=""/>
                             <div className={styles.background}></div>
                         </div>
                     </div>
