@@ -32,9 +32,10 @@ export default function Home() {
               <div className={styles.inCaseContainer}>
                 <span>PulseSync - это проект с открытым исходным кодом, который интегрируется с Яндекс Музыкой. Он поддерживает Discord RPC, пользовательские темы и скрипты, а также вскоре добавит возможность совместного прослушивания музыки.</span>
                 <div className={styles.downloadCase}>
-                  <div>Download</div>
+                <div>Soon</div>
+                  {/* <div>Download</div>
                   <button>.exe</button>
-                  <button>.dmg</button>
+                  <button>.dmg</button> */}
                 </div>
               </div>
             </div>
