@@ -32,7 +32,7 @@ export default function Home() {
               <div className={styles.inCaseContainer}>
                 <span>PulseSync - это проект с открытым исходным кодом, который интегрируется с Яндекс Музыкой. Он поддерживает Discord RPC, пользовательские темы и скрипты, а также вскоре добавит возможность совместного прослушивания музыки.</span>
                 <div className={styles.downloadCase}>
-                <div>Soon</div>
+                  <div>Скоро</div>
                   {/* <div>Download</div>
                   <button>.exe</button>
                   <button>.dmg</button> */}
@@ -43,7 +43,7 @@ export default function Home() {
           <div className={styles.footerCase}>
             <div className={styles.case}>
               <div className={styles.stargazersContainer}>
-                Stargazers
+                Звездные наблюдатели
                 <div className={styles.avatarContainer}>
                   {stargazers.map((user) => (
                     <div key={user.id} className={styles.avatar}>
@@ -56,20 +56,20 @@ export default function Home() {
               </div>
               <div className={styles.footerInfo}>
                 <div className={styles.footerLinks}>
-                  <span className={styles.infoLinks}>SOCIAL</span>
+                  <span className={styles.infoLinks}>СОЦИАЛЬНЫЕ СЕТИ</span>
                   <div className={styles.links}>
                     <a href="https://discord.gg/qy42uGTzRy">Discord</a>
                     <a href="https://boosty.to/evt">Boosty</a>
                   </div>
                 </div>
                 <div className={styles.footerLinks}>
-                  <span className={styles.infoLinks}>Policies</span>
+                  <span className={styles.infoLinks}>Политика</span>
                   <div className={styles.links}>
                     <a href="">Соглашение об использовании программы</a>
                   </div>
                 </div>
                 <div className={styles.footerLinks}>
-                  <span className={styles.infoLinks}>Resources</span>
+                  <span className={styles.infoLinks}>Ресурсы</span>
                   <div className={styles.links}>
                     <a href="https://github.com/PulseSync-Official/YMusic-DRPC">Github</a>
                     <a href="https://github.com/PulseSync-Official/YMusic-DRPC/wiki">Wiki</a>
