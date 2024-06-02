@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "@/styles/Callback.module.scss";
 
+import ErrorConnect from "../../../public/authAssest/ErrorConnect.svg";
 import ImgConnect from "../../../public/authAssest/Connect.svg";
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
@@ -11,14 +12,16 @@ import UserInitials from "@/api/interface/user.initials";
 export default function Callback() {
     const router = useRouter()
     const [user, setUser] = useState<UserInterface>(UserInitials)
+    const [error, setError] = useState(false);
     const getUser = async () => {
         if (router.query.token) {
             const res = await fetch(`http://localhost:4000/user/${router.query.id}`)
+            if(!res.ok) setError(true)
             const j = await res.json()
             setUser(j)
         }
         else {
-           await router.push("/");
+            setError(true)
         }
     }
     useEffect(() => {
@@ -40,8 +43,8 @@ export default function Callback() {
                             <img className={styles.userAvatar}
                                  src={user.avatar}
                                  alt=""/>
-                            <Image className={styles.imgStatus} src={ImgConnect} alt=""/>
-                            <span>Вы авторизированны вернитесь в приложение</span>
+                            <Image className={styles.imgStatus} src={!error ? ImgConnect : ErrorConnect} alt=""/>
+                            <span>{!error ? "Вы авторизированны вернитесь в приложение" : "Что-то пошло не так"}</span>
                             <img className={styles.backgroundImg}
                                  src={user.avatar}
                                  alt=""/>
