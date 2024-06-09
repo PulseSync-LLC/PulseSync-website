@@ -7,6 +7,7 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import UserInterface from "@/api/interface/user.interface";
 import UserInitials from "@/api/interface/user.initials";
+import config from "@/api/config";
 
 
 export default function Callback() {
@@ -15,7 +16,7 @@ export default function Callback() {
     const [error, setError] = useState(false);
     const getUser = async () => {
         if (router.query.token) {
-            const res = await fetch(`http://localhost:4000/user/${router.query.id}`)
+            const res = await fetch(`${config.SERVER_URL}/user/${router.query.id}`)
             if(!res.ok) setError(true)
             const j = await res.json()
             setUser(j)
