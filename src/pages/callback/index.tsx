@@ -3,8 +3,9 @@ import styles from "@/styles/Callback.module.scss";
 
 import ErrorConnect from "../../../public/authAssest/ErrorConnect.svg";
 import ImgConnect from "../../../public/authAssest/Connect.svg";
-import {useRouter} from "next/router";
-import {useEffect, useState} from "react";
+import Logo from "../../../public/fullLogo.svg";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import UserInterface from "@/api/interface/user.interface";
 import UserInitials from "@/api/interface/user.initials";
 import config from "@/api/config";
@@ -17,7 +18,7 @@ export default function Callback() {
     const getUser = async () => {
         if (router.query.token) {
             const res = await fetch(`${config.SERVER_URL}/user/${router.query.id}`)
-            if(!res.ok) setError(true)
+            if (!res.ok) setError(true)
             const j = await res.json()
             setUser(j)
         }
@@ -26,10 +27,10 @@ export default function Callback() {
         }
     }
     useEffect(() => {
-        if(router.isReady) getUser()
+        if (router.isReady) getUser()
     }, [router.isReady])
     useEffect(() => {
-        if(user.id !== "") {
+        if (user.id !== "") {
             console.log(user)
             router.push(`pulsesync://callback?token=${router.query.token}`)
         }
@@ -37,19 +38,22 @@ export default function Callback() {
     return (
         <>
             <div className="mainContainer">
-                <span className="siteUrl">pulsesync.dev/<span className="siteRoute">callback</span></span>
                 <div className={styles.container}>
                     <div className={styles.case}>
-                        <div className={styles.backgroundContainer}>
-                            <img className={styles.userAvatar}
-                                 src={user.avatar}
-                                 alt=""/>
-                            <Image className={styles.imgStatus} src={!error ? ImgConnect : ErrorConnect} alt=""/>
-                            <span>{!error ? "Вы авторизированны вернитесь в приложение" : "Что-то пошло не так"}</span>
-                            <img className={styles.backgroundImg}
-                                 src={user.avatar}
-                                 alt=""/>
-                            <div className={styles.background}></div>
+                        <div>
+                            <div className={styles.logoPlace}>
+                                <Image src={Logo} alt={""} />
+                            </div>
+                            <div className={styles.containerBG}>
+                                <div className={styles.backgroundContainer}>
+                                    <img className={styles.backgroundImg}
+                                        src={user.avatar}
+                                        alt="" />
+                                    <Image className={styles.imgStatus} src={!error ? ImgConnect : ErrorConnect} alt="" />
+                                    <span>{!error ? "Вы авторизированны вернитесь в приложение" : "Что-то пошло не так"}</span>
+                                    <div className={styles.background}></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
