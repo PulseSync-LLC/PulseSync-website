@@ -43,7 +43,7 @@ export default function Home() {
             <Image src={Welcome} width={435} height={274} unoptimized alt="" />
             <div className={styles.inCaseContainer}>
               <h1>Музыка по-новому!</h1>
-              <h2>PulseSync - это проект с открытым исходным кодом, который интегрируется с Яндекс Музыкой. Он поддерживает Discord RPC, пользовательские темы и скрипты.</h2>
+              <h2>PulseSync - это проект с открытым клиентским исходным кодом, который интегрируется с Яндекс Музыкой. Он поддерживает Discord RPC, пользовательские темы и скрипты.</h2>
               <button className={styles.downloadButton}><MdDownload size={22} />Скачать для Windows</button>
             </div>
           </div>
