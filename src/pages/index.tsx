@@ -18,9 +18,21 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchStargazers() {
-      const response = await fetch("https://api.github.com/repos/PulseSync-Official/YMusic-DRPC/stargazers");
-      const data = await response.json();
-      setStargazers(data);
+      let currentPage = 1;
+      let allStargazers: any[] | ((prevState: Stargazers[]) => Stargazers[]) = [];
+      while (true) {
+        const response = await fetch(`https://api.github.com/repos/PulseSync-Official/YMusic-DRPC/stargazers?page=${currentPage}`);
+        if (!response.ok) {
+          break;
+        }
+        const data = await response.json();
+        if (data.length === 0) {
+          break;
+        }
+        allStargazers = [...allStargazers, ...data];
+        currentPage++;
+      }
+      setStargazers(allStargazers);
     }
 
     fetchStargazers();
@@ -31,7 +43,7 @@ export default function Home() {
       <div className="mainContainer">
         <div className={styles.nav}>
           <div className={styles.headerSizeble}>
-            <a href="/"><Image src={Logo} quality={100} unoptimized alt="" /></a>
+            <a href="/"><Image src={Logo} quality={100} unoptimized alt="" /><div className={styles.beta}>Beta</div></a>
             <div className={styles.nav_links}>
               <a href="https://github.com/PulseSync-Official/YMusic-DRPC">Github</a>
               <a href="https://github.com/PulseSync-Official/YMusic-DRPC/wiki">Wiki</a>
