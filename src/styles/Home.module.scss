@@ -18,6 +18,23 @@
     width: -webkit-fill-available;
     max-width: 1000px;
 
+    & a,
+    div {
+      text-decoration: none;
+    }
+
+    .beta {
+      border-radius: 500px;
+      margin-left: 8px;
+      padding: 2px 8px;
+      background: #fff;
+      color: #3468F2;
+      text-decoration: none;
+
+      font-weight: 800;
+      font-size: 16px;
+    }
+
     .nav_links {
       display: flex;
       flex-direction: row;
