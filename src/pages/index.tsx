@@ -9,7 +9,8 @@ import Build from "../../public/img/build.svg";
 import { useState, useEffect } from "react";
 import Stargazers from "../interfaces/stargazers.interface";
 
-import { MdDownload } from 'react-icons/md'
+import { MdDownload, MdTimer } from 'react-icons/md'
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,7 +44,7 @@ export default function Home() {
       <div className="mainContainer">
         <div className={styles.nav}>
           <div className={styles.headerSizeble}>
-            <a href="/"><Image src={Logo} quality={100} unoptimized alt="" /><div className={styles.beta}>Beta</div></a>
+            <Link href="/"><Image src={Logo} quality={100} unoptimized alt="" /><div className={styles.beta}>Beta</div></Link>
             <div className={styles.nav_links}>
               <a href="https://github.com/PulseSync-Official/YMusic-DRPC">Github</a>
               <a href="https://github.com/PulseSync-Official/YMusic-DRPC/wiki">Wiki</a>
@@ -56,7 +57,8 @@ export default function Home() {
             <div className={styles.inCaseContainer}>
               <h1>Музыка по-новому!</h1>
               <h2>PulseSync - это проект с открытым клиентским исходным кодом, который интегрируется с Яндекс Музыкой. Он поддерживает Discord RPC, пользовательские темы и скрипты.</h2>
-              <button className={styles.downloadButton}><MdDownload size={22} />Скачать для Windows</button>
+              {/* <button className={styles.downloadButton}><MdDownload size={22} />Скачать для Windows</button> */}
+              <button className={styles.downloadButton} disabled><MdTimer size={22}/>Скоро</button>
             </div>
           </div>
         </div>
@@ -124,7 +126,7 @@ export default function Home() {
             <div className={styles.footerLinks}>
               <span className={styles.infoLinks}>Политика</span>
               <div className={styles.links}>
-                <a href="">Соглашение об использовании программы</a>
+                <a href="https://github.com/PulseSync-Official/YMusic-DRPC/blob/patcher-ts/static/assets/policy/terms.ru.md">Соглашение об использовании программы</a>
               </div>
             </div>
             <div className={styles.footerLinks}>

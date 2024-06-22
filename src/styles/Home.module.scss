@@ -138,6 +138,12 @@
           background: #ecf1ff;
           color: #3468F2;
         }
+
+        &:disabled {
+          background: #ecf1ff;
+          color: #3468F2;
+          cursor: not-allowed;
+        }
       }
     }
   }
