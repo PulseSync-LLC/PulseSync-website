@@ -18,7 +18,7 @@ export default function Home() {
                         <div className={policy.main}>
                             <div>
                                 <div className={policy.header}>
-                                    <div className={policy.date}>25.06.2024</div>
+                                    <div className={policy.date}>29.06.2024</div>
                                     <div className={policy.title}>Политика в отношении обработки персональных данных</div>
                                 </div>
                             </div>
