@@ -49,9 +49,13 @@ export default function Callback() {
                                     <img className={styles.backgroundImg}
                                         src={user.avatar}
                                         alt="" />
-                                    <Image className={styles.imgStatus} src={!error ? ImgConnect : ErrorConnect} alt="" />
-                                    <span>{!error ? "Вы авторизированны вернитесь в приложение" : "Что-то пошло не так"}</span>
-                                    <div className={styles.background}></div>
+                                    {!error ? <Image className={styles.imgStatus} src={!error ? ImgConnect : ErrorConnect} alt="" /> : null}
+                                    <div>
+                                        <span>{error ? "Вы не бета тестер" : error ? "Походу вы в бане!" : null}</span>
+                                        <span>{!error ? "Вы авторизированны вернитесь в приложение" : error ? "Доступ ограничен" : !error ? "Доступ ограничен, ой :)" : "Что-то пошло не так"}</span>
+                                    </div>
+                                    {/* если нет бетки      {error ? <p className={styles.alert}>Чтоб получить доступ нужно иметь подписку на <a className={styles.boosty} target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt">Boosty</a> и в самом бусти привязать свой аккаунт дискорд и после зайти на наш сервер <a className={styles.discord} target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy">Disocrd</a>. После будет выдан доступ к бете.</p> : null} */}
+                                    {/* если бан      {error ? <p className={styles.alert}>Причина: </p> : null} */}
                                 </div>
                             </div>
                         </div>

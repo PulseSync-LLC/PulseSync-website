@@ -16,7 +16,7 @@
 
         background: #1E2027;
         border-radius: 15px;
-        width: 340px;
+        width: 508px;
 
         div {
             box-sizing: border-box;
@@ -72,10 +72,57 @@
                         width: 88px;
                         height: 88px;
                     }
+
+                    >div {
+                        display: flex;
+                        gap: 2px;
+
+                        span:nth-child(1) {
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 20px;
+                            line-height: 24px;
+                            text-align: center;
+
+                            color: #FFFFFF;
+                        }
+                    }
+
+                    p {
+                        margin: 0;
+                    }
                 }
             }
         }
 
     }
 
+}
+
+
+.alert {
+    display: inline-block;
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    .boosty,
+    .discord {
+        display: inline-block;
+    }
+
+    .boosty {
+        font-weight: 800;
+        color: #E56F28;
+    }
+
+    .discord {
+        font-weight: 800;
+        color: #85A0FF;
+    }
 }

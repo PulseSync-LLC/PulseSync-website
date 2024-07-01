@@ -11,6 +11,8 @@ import Stargazers from "../interfaces/stargazers.interface";
 
 import { MdDownload, MdTimer } from 'react-icons/md'
 import Link from "next/link";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,15 +44,7 @@ export default function Home() {
   return (
     <>
       <div className="mainContainer">
-        <div className={styles.nav}>
-          <div className={styles.headerSizeble}>
-            <Link href="/"><Image src={Logo} quality={100} unoptimized alt="" /><div className={styles.beta}>Beta</div></Link>
-            <div className={styles.nav_links}>
-              <a href="https://github.com/PulseSync-Official/YMusic-DRPC">Github</a>
-              <a href="https://github.com/PulseSync-Official/YMusic-DRPC/wiki">Wiki</a>
-            </div>
-          </div>
-        </div>
+        <Header />
         <div className={styles.welcomeCase}>
           <div className={styles.welcomeCaseSizeble}>
             <Image src={Welcome} width={435} height={274} unoptimized alt="" />
@@ -58,7 +52,7 @@ export default function Home() {
               <h1>Музыка по-новому!</h1>
               <h2>PulseSync - это проект с открытым клиентским исходным кодом, который интегрируется с Яндекс Музыкой. Он поддерживает Discord RPC, пользовательские темы и скрипты.</h2>
               {/* <button className={styles.downloadButton}><MdDownload size={22} />Скачать для Windows</button> */}
-              <button className={styles.downloadButton} disabled><MdTimer size={22}/>Скоро</button>
+              <button className={styles.downloadButton} disabled><MdTimer size={22} />Скоро</button>
             </div>
           </div>
         </div>
@@ -105,7 +99,7 @@ export default function Home() {
                 {stargazers.map((user) => (
                   <div key={user.id} className={styles.avatar}>
                     <a href={user.html_url} target="_blank" rel="noopener noreferrer">
-                      <Image src={user.avatar_url} alt={user.login} width={55} height={55}/>
+                      <Image src={user.avatar_url} alt={user.login} width={55} height={55} />
                       <span>{user.login}</span>
                     </a>
                   </div>
@@ -114,30 +108,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={`${styles.footerCase}`}>
-          <div className={styles.footerInfo}>
-            <div className={styles.footerLinks}>
-              <span className={styles.infoLinks}>СОЦИАЛЬНЫЕ СЕТИ</span>
-              <div className={styles.links}>
-                <a href="https://discord.gg/qy42uGTzRy">Discord</a>
-                <a href="https://boosty.to/evt">Boosty</a>
-              </div>
-            </div>
-            <div className={styles.footerLinks}>
-              <span className={styles.infoLinks}>Политика</span>
-              <div className={styles.links}>
-                <a href="https://github.com/PulseSync-Official/YMusic-DRPC/blob/patcher-ts/static/assets/policy/terms.ru.md">Соглашение об использовании программы</a>
-              </div>
-            </div>
-            <div className={styles.footerLinks}>
-              <span className={styles.infoLinks}>Ресурсы</span>
-              <div className={styles.links}>
-                <a href="https://github.com/PulseSync-Official/YMusic-DRPC">Github</a>
-                <a href="https://github.com/PulseSync-Official/YMusic-DRPC/wiki">Wiki</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Footer/>
       </div>
     </>
   );
