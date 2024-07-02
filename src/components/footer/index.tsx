@@ -1,4 +1,5 @@
 import styles from "@/styles/Home.module.scss";
+import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -15,8 +16,8 @@ const Footer = () => {
                     <div className={styles.footerLinks}>
                         <span className={styles.infoLinks}>Политика</span>
                         <div className={styles.links}>
-                            <a href="/terms">Условия использования</a>
-                            <a href="/privacy">Конфиденциальность</a>
+                            <Link href="/terms">Условия использования</Link>
+                            <Link href="/privacy">Конфиденциальность</Link>
                         </div>
                     </div>
                     <div className={styles.footerLinks}>
