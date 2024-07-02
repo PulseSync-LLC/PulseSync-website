@@ -6,6 +6,7 @@ import ImgConnect from "../../../public/authAssest/Connect.svg";
 import Logo from "../../../public/fullLogo.svg";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Skeleton from 'react-loading-skeleton'
 import UserInterface from "@/api/interface/user.interface";
 import UserInitials from "@/api/interface/user.initials";
 import config from "@/api/config";
@@ -60,24 +61,47 @@ export default function Callback() {
                                 <Image src={Logo} alt={""} />
                             </div>
                             <div className={styles.containerBG}>
-                                <div className={styles.backgroundContainer}>
-                                    <img className={styles.backgroundImg}
-                                         src={user.avatar}
-                                         alt="" />
-                                    {!user.ban && isBeta && (
-                                        !error ? <Image className={styles.imgStatus} src={ImgConnect} alt="" /> : <Image className={styles.imgStatus} src={ErrorConnect} alt="" />
-                                    )}
-                                    <div>
-                                        <span>{user.ban ? "Походу вы в бане!" : !isBeta ? "Вы не бета тестер" : null}</span>
-                                        <span>{error ? "Что-то пошло не так" : user.ban ? "Доступ ограничен, ой :)" : !isBeta ? "Доступ ограничен" : "Вы авторизированны вернитесь в приложение"}</span>
+                                {loading ? (
+                                    <div className={styles.backgroundContainer}>
+                                        <img className={styles.backgroundImg}
+                                            src={user.avatar}
+                                            alt="" />
+                                        {!user.ban && isBeta && (
+                                            !error ? <Image className={styles.imgStatus} src={ImgConnect} alt="" /> : <Image className={styles.imgStatus} src={ErrorConnect} alt="" />
+                                        )}
+                                        <div>
+                                            <span>{user.ban ? "Походу вы в бане!" : !isBeta ? "Вы не бета тестер" : null}</span>
+                                            <span>{error ? "Что-то пошло не так" : user.ban ? "Доступ ограничен, ой :)" : !isBeta ? "Доступ ограничен" : "Вы авторизированны вернитесь в приложение"}</span>
+                                        </div>
+                                        {!isBeta && !user.ban ? (
+                                            <p className={styles.alert}>
+                                                Чтоб получить доступ нужно иметь подписку на <a className={styles.boosty} target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt">Boosty</a>, <a className={styles.discord} target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy">Discord</a> После будет выдан доступ к бете.
+                                            </p>
+                                        ) : null}
+                                        {user.ban ? <p className={styles.alert}>Причина: {user.ban.reason}</p> : null}
                                     </div>
-                                    {!isBeta && !user.ban ? (
-                                        <p className={styles.alert}>
-                                            Чтоб получить доступ нужно иметь подписку на <a className={styles.boosty} target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt">Boosty</a>, <a className={styles.discord} target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy">Discord</a> После будет выдан доступ к бете.
-                                        </p>
-                                    ) : null}
-                                    {user.ban ? <p className={styles.alert}>Причина: {user.ban.reason}</p> : null}
-                                </div>
+                                ) : (
+                                    <div className={styles.backgroundContainer}>
+                                        <Skeleton
+                                            className={styles.backgroundImg}
+                                            borderRadius={500}
+                                            width={88}
+                                            height={88}
+                                        />
+                                        <div>
+                                            <Skeleton
+                                                className={styles.backgroundImg}
+                                                width={182}
+                                                height={27}
+                                            />
+                                            <Skeleton
+                                                className={styles.backgroundImg}
+                                                width={121}
+                                                height={20}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

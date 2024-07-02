@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
       <>
-        <SkeletonTheme baseColor="#1c1c22" highlightColor="#333">
+        <SkeletonTheme baseColor="#1E2027" highlightColor="#3E424C">
                     <Component {...pageProps} />
           </SkeletonTheme>
       </>
