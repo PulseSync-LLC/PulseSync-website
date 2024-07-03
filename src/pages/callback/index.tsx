@@ -35,7 +35,7 @@ export default function Callback() {
             const data = await res.json();
             if (data.access) {
                 setBeta(true);
-                await router.push(`pulsesync://callback?token=${router.query.token}`);
+                await router.push(`pulsesync://callback?token=${router.query.token}&id=${router.query.id}`);
             }
             setLoading(false);
         }
