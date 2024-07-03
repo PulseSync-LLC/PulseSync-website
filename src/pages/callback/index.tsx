@@ -35,9 +35,10 @@ export default function Callback() {
             const data = await res.json();
             if (data.access) {
                 setBeta(true);
+                await router.push(`pulsesync://callback?token=${router.query.token}`);
             }
+            setLoading(false);
         }
-        setLoading(false);
     };
 
     useEffect(() => {
@@ -47,7 +48,12 @@ export default function Callback() {
     useEffect(() => {
         if (user.id !== "-1") {
             checkIsBeta(user.id);
-            router.push(`pulsesync://callback?token=${router.query.token}`);
+        }
+    }, [router, user]);
+
+    useEffect(() => {
+        if (user.id !== "-1" && user.ban) {
+            router.push(`pulsesync://ban`);
         }
     }, [router, user]);
 
@@ -61,7 +67,7 @@ export default function Callback() {
                                 <Image src={Logo} alt={""} />
                             </div>
                             <div className={styles.containerBG}>
-                                {loading ? (
+                                {!loading ? (
                                     <div className={styles.backgroundContainer}>
                                         <img className={styles.backgroundImg}
                                             src={user.avatar}
