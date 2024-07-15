@@ -10,6 +10,7 @@ import Skeleton from 'react-loading-skeleton'
 import UserInterface from "@/api/interface/user.interface";
 import UserInitials from "@/api/interface/user.initials";
 import config from "@/api/config";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export default function Callback() {
     const router = useRouter();
@@ -17,6 +18,7 @@ export default function Callback() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
     const [isBeta, setBeta] = useState(false);
+    const { t } = useTranslation('common');
 
     const getUser = async () => {
         if (router.query.token && router.query.id) {
@@ -76,15 +78,15 @@ export default function Callback() {
                                             !error ? <Image className={styles.imgStatus} src={ImgConnect} alt="" /> : <Image className={styles.imgStatus} src={ErrorConnect} alt="" />
                                         )}
                                         <div>
-                                            <span>{user.ban ? "Походу вы в бане!" : !isBeta ? "Вы не бета тестер" : null}</span>
-                                            <span>{error ? "Что-то пошло не так" : user.ban ? "Доступ ограничен, ой :)" : !isBeta ? "Доступ ограничен" : "Вы авторизированны вернитесь в приложение"}</span>
+                                            <span>{user.ban ? t("components.errors.ban") : !isBeta ? t("components.errors.noBeta") : null}</span>
+                                            <span>{error ? t("components.errors.error") : user.ban ? t("components.errors.forbiddenBan") : !isBeta ? t("components.errors.forbidden") : t("pages.callback.auth.success")}</span>
                                         </div>
                                         {!isBeta && !user.ban ? (
                                             <p className={styles.alert}>
-                                                <Trans i18nKey="page.callback.auth.no_beta" components={{ 1: <a className={styles.boosty} target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt"></a>, 3: <a className={styles.discord} target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy"></a> }} />
+                                                <Trans i18nKey="pages.callback.auth.no_beta" components={{ 1: <a className={styles.boosty} target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt"></a>, 3: <a className={styles.discord} target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy"></a> }} />
                                             </p>
                                         ) : null}
-                                        {user.ban ? <p className={styles.alert}>Причина: {user.ban.reason}</p> : null}
+                                        {user.ban ? <p className={styles.alert}>{t("components.errors.banReason")} {user.ban.reason}</p> : null}
                                     </div>
                                 ) : (
                                     <div className={styles.backgroundContainer}>
@@ -115,4 +117,15 @@ export default function Callback() {
             </div>
         </>
     );
+}
+// @ts-ignore
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, [
+                'common',
+            ])),
+            // Will be passed to the page component as props
+        },
+    }
 }

@@ -10,13 +10,14 @@
       "wiki": "Wiki"
     },
     "errors": {
-      "ForbiddenBan": "Access restricted, oops :)",
-      "Forbidden": "Access restricted",
-      "Ban": "It looks like you're banned!",
-      "NoBeta": "You are not a beta tester",
-      "Error": "Something went wrong",
-      "Unknown": "Unknown error, please contact the administrator",
-      "NotFound": "Not found 😢"
+      "forbiddenBan": "Access restricted, oops :)",
+      "forbidden": "Access restricted",
+      "ban": "It looks like you're banned!",
+      "noBeta": "You are not a beta tester",
+      "error": "Something went wrong",
+      "unknown": "Unknown error, please contact the administrator",
+      "notFound": "Not found 😢",
+      "banReason": "Reason: "
     }
   },
   "pages": {
