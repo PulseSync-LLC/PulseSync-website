@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "@/styles/Callback.module.scss";
-
+import {Trans, useTranslation} from 'next-i18next';
 import ErrorConnect from "../../../public/authAssest/ErrorConnect.svg";
 import ImgConnect from "../../../public/authAssest/Connect.svg";
 import Logo from "../../../public/fullLogo.svg";
@@ -81,7 +81,7 @@ export default function Callback() {
                                         </div>
                                         {!isBeta && !user.ban ? (
                                             <p className={styles.alert}>
-                                                Чтоб получить доступ нужно иметь подписку на <a className={styles.boosty} target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt">Boosty</a>, <a className={styles.discord} target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy">Discord</a> После будет выдан доступ к бете.
+                                                <Trans i18nKey="page.callback.auth.no_beta" components={{ 1: <a className={styles.boosty} target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt"></a>, 3: <a className={styles.discord} target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy"></a> }} />
                                             </p>
                                         ) : null}
                                         {user.ban ? <p className={styles.alert}>Причина: {user.ban.reason}</p> : null}

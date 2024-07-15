@@ -5,11 +5,10 @@ import policy from "@/styles/Policy.module.scss";
 import Logo from "../../../public/fullLogo.svg";
 import Link from "next/link";
 import Header from "@/components/header";
-import Footer from "@/components/footer";
+import {Footer} from "@/components/footer";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function Privacy() {
     return (
         <>
             <div className="mainContainer">
@@ -111,4 +110,14 @@ export default function Home() {
             </div>
         </>
     );
+}
+// @ts-ignore
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, [
+                'common',
+            ])),
+        },
+    }
 }

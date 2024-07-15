@@ -1,115 +1,113 @@
-import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
-import Logo from "../../public/fullLogo.svg";
 import Welcome from "../../public/img/1.png";
 import Addons from "../../public/img/addons.png";
 import Build from "../../public/img/build.svg";
 import { useState, useEffect } from "react";
 import Stargazers from "../interfaces/stargazers.interface";
-
-import { MdDownload, MdTimer } from 'react-icons/md'
-import Link from "next/link";
+import { useTranslation } from 'next-i18next'
+import { MdTimer } from 'react-icons/md';
 import Header from "@/components/header";
-import Footer from "@/components/footer";
+import {Footer} from "@/components/footer";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [stargazers, setStargazers] = useState<Stargazers[]>([]);
+    const { t, ready } = useTranslation('common');
+    const [stargazers, setStargazers] = useState<Stargazers[]>([]);
 
-  useEffect(() => {
-    async function fetchStargazers() {
-      let currentPage = 1;
-      let allStargazers: any[] | ((prevState: Stargazers[]) => Stargazers[]) = [];
-      while (true) {
-        const response = await fetch(`https://api.github.com/repos/PulseSync-Official/YMusic-DRPC/stargazers?page=${currentPage}`);
-        if (!response.ok) {
-          break;
+    useEffect(() => {
+        async function fetchStargazers() {
+            let currentPage = 1;
+            let allStargazers: any[] | ((prevState: Stargazers[]) => Stargazers[]) = [];
+            while (true) {
+                const response = await fetch(`https://api.github.com/repos/PulseSync-Official/YMusic-DRPC/stargazers?page=${currentPage}`);
+                if (!response.ok) {
+                    break;
+                }
+                const data = await response.json();
+                if (data.length === 0) {
+                    break;
+                }
+                allStargazers = [...allStargazers, ...data];
+                currentPage++;
+            }
+            setStargazers(allStargazers);
         }
-        const data = await response.json();
-        if (data.length === 0) {
-          break;
-        }
-        allStargazers = [...allStargazers, ...data];
-        currentPage++;
-      }
-      setStargazers(allStargazers);
+
+        fetchStargazers();
+    }, []);
+    return (
+        <>
+            <div className="mainContainer">
+                <Header />
+                <div className={styles.welcomeCase}>
+                    <div className={styles.welcomeCaseSizeble}>
+                        <Image src={t('pages.index.img_path')} width={500} height={300} unoptimized alt="" />
+                        <div className={styles.inCaseContainer}>
+                            <h1>{t('pages.index.welcome_title')}</h1>
+                            <h2>{t('pages.index.welcome_description')}</h2>
+                            <button className={styles.downloadButton} disabled><MdTimer size={22} />{t('pages.index.coming_soon')}</button>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.contentCase}>
+                    <div className={styles.contentCaseSizeble}>
+                        <div className={styles.contentCaseContainer}>
+                            <h1>{t('pages.index.addons_title')}</h1>
+                            <h2>{t('pages.index.addons_description')}</h2>
+                        </div>
+                        <Image src={Addons} quality={100} width={524} height={259} unoptimized alt="" />
+                    </div>
+                </div>
+                <div className={`${styles.contentCase} ${styles.futuresBackground}`}>
+                    <div className={styles.contentCaseSizeble}>
+                        <Image src={Build} quality={100} width={165} height={165} unoptimized alt="" />
+                        <div className={styles.contentCaseContainer}>
+                            <h1>{t('pages.index.plans_title')}</h1>
+                            <h2>
+                                {t('pages.index.plans_description')}
+                                <ul>
+                                    <li>{t('pages.index.plans_list_1')}</li>
+                                    <li>{t('pages.index.plans_list_2')}</li>
+                                    <li>{t('pages.index.plans_list_3')}</li>
+                                </ul>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div className={`${styles.contentCase} ${styles.stargazersBackground}`}>
+                    <div className={styles.contentCaseSizeble}>
+                        <div className={styles.stargazersContainer}>
+                            {t('pages.index.stargazers_thankyou')}
+                            <div className={styles.avatarContainer}>
+                                {stargazers.map((user) => (
+                                    <div key={user.id} className={styles.avatar}>
+                                        <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+                                            <Image src={user.avatar_url} alt={user.login} width={55} height={55} />
+                                            <span>{user.login}</span>
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        </>
+    );
+}
+
+// @ts-ignore
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, [
+                'common',
+            ])),
+            // Will be passed to the page component as props
+        },
     }
-
-    fetchStargazers();
-  }, []);
-
-  return (
-    <>
-      <div className="mainContainer">
-        <Header />
-        <div className={styles.welcomeCase}>
-          <div className={styles.welcomeCaseSizeble}>
-            <Image src={Welcome} width={435} height={274} unoptimized alt="" />
-            <div className={styles.inCaseContainer}>
-              <h1>Музыка по-новому!</h1>
-              <h2>PulseSync - это проект с открытым клиентским исходным кодом, который интегрируется с Яндекс Музыкой. Он поддерживает Discord RPC, пользовательские темы и скрипты.</h2>
-              {/* <button className={styles.downloadButton}><MdDownload size={22} />Скачать для Windows</button> */}
-              <button className={styles.downloadButton} disabled><MdTimer size={22} />Скоро</button>
-            </div>
-          </div>
-        </div>
-        <div className={styles.contentCase}>
-          <div className={styles.contentCaseSizeble}>
-            <div className={styles.contentCaseContainer}>
-              <h1>Как насчёт аддонов! (Скоро)</h1>
-              <h2>У вас есть возможность настроить внешний вид и функциональность так, как вам удобно. Создавайте собственные аддоны, добавляя уникальные визуальные и функциональные элементы. Если вы не хотите создавать собственные, вы можете загрузить готовые решения от других пользователей и разработчиков на сервере Discord.</h2>
-            </div>
-            <Image src={Addons} quality={100} width={524} height={259} unoptimized alt="" />
-          </div>
-        </div>
-        <div className={`${styles.contentCase} ${styles.futuresBackground}`}>
-          <div className={styles.contentCaseSizeble}>
-            <Image src={Build} quality={100} width={165} height={165} unoptimized alt="" />
-            <div className={styles.contentCaseContainer}>
-              <h1>Что в планах!</h1>
-              <h2>
-                Как только приложение обретет большое сообщество, мы добавим новый
-                функционал. Например:
-                <ul>
-                  <li>
-                    Профили: Возможность делиться статистикой прослушанных часов, своими
-                    плейлистами и, если вы разработчик, своими аддонами.
-                  </li>
-                  <li>
-                    Магазин с аддонами: Легко находите и устанавливайте дополнительные
-                    функции и темы.
-                  </li>
-                  <li>
-                    Совместное прослушивание музыки: Приглашайте друзей и слушайте музыку
-                    вместе в реальном времени.
-                  </li>
-                </ul>
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div className={`${styles.contentCase} ${styles.stargazersBackground}`}>
-          <div className={styles.contentCaseSizeble}>
-            <div className={styles.stargazersContainer}>
-              Спасибо звездочётам с GitHub
-              <div className={styles.avatarContainer}>
-                {stargazers.map((user) => (
-                  <div key={user.id} className={styles.avatar}>
-                    <a href={user.html_url} target="_blank" rel="noopener noreferrer">
-                      <Image src={user.avatar_url} alt={user.login} width={55} height={55} />
-                      <span>{user.login}</span>
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        <Footer/>
-      </div>
-    </>
-  );
 }

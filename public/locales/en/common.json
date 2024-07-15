@@ -1,0 +1,44 @@
+{
+  "components": {
+    "footer": {
+      "social_media": "SOCIAL MEDIA",
+      "policy": "Policy",
+      "terms_of_use": "Terms of Use",
+      "privacy": "Privacy",
+      "resources": "Resources",
+      "github": "Github",
+      "wiki": "Wiki"
+    },
+    "errors": {
+      "ForbiddenBan": "Access restricted, oops :)",
+      "Forbidden": "Access restricted",
+      "Ban": "It looks like you're banned!",
+      "NoBeta": "You are not a beta tester",
+      "Error": "Something went wrong",
+      "Unknown": "Unknown error, please contact the administrator",
+      "NotFound": "Not found 😢"
+    }
+  },
+  "pages": {
+    "callback": {
+      "auth": {
+        "success": "You are authorized, return to the application",
+        "no_beta": "To get access, you need to have a subscription on <1>Boosty</1> or boost our Discord server <3>Discord</3>. Access to the beta will be granted afterwards."
+      }
+    },
+    "index": {
+      "img_path": "/img/2.png",
+      "welcome_title": "Music in a new way!",
+      "welcome_description": "PulseSync is an open-source client project that integrates with Yandex Music. It supports Discord RPC, custom themes, and scripts.",
+      "coming_soon": "Coming Soon",
+      "addons_title": "How about addons! (Coming Soon)",
+      "addons_description": "You have the ability to customize the appearance and functionality to your liking. Create your own addons, adding unique visual and functional elements. If you don't want to create your own, you can download ready-made solutions from other users and developers on the Discord server.",
+      "plans_title": "What's in the plans!",
+      "plans_description": "Once the app gains a large community, we will add new features. For example:",
+      "plans_list_1": "Profiles: The ability to share your listening hours statistics, playlists, and if you are a developer, your addons.",
+      "plans_list_2": "Addon store: Easily find and install additional features and themes.",
+      "plans_list_3": "Co-listening: Invite friends and listen to music together in real-time.",
+      "stargazers_thankyou": "Thanks to the stargazers on GitHub"
+    }
+  }
+}
