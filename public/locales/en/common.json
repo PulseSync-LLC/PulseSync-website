@@ -28,7 +28,7 @@
       }
     },
     "index": {
-      "img_path": "/img/2.png",
+      "img_path": "/assets/img/2.png",
       "welcome_title": "Music in a new way!",
       "welcome_description": "PulseSync is an open-source client project that integrates with Yandex Music. It supports Discord RPC, custom themes, and scripts.",
       "coming_soon": "Coming Soon",

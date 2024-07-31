@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styles from "@/styles/Callback.module.scss";
 import {Trans, useTranslation} from 'next-i18next';
-import ErrorConnect from "../../../public/authAssest/ErrorConnect.svg";
-import ImgConnect from "../../../public/authAssest/Connect.svg";
-import Logo from "../../../public/fullLogo.svg";
+import ErrorConnect from "../../../public/assets/authAssest/ErrorConnect.svg";
+import ImgConnect from "../../../public/assets/authAssest/Connect.svg";
+import Logo from "../../../public/assets/fullLogo.svg";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Skeleton from 'react-loading-skeleton'
@@ -11,6 +11,7 @@ import UserInterface from "@/api/interface/user.interface";
 import UserInitials from "@/api/interface/user.initials";
 import config from "@/api/config";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import Layout from '@/components/layout'
 
 export default function Callback() {
     const router = useRouter();
@@ -60,7 +61,7 @@ export default function Callback() {
     }, [router, user]);
 
     return (
-        <>
+        <Layout title="Callback" disableNavbar disableFooter>
             <div className="mainContainer">
                 <div className={styles.container}>
                     <div className={styles.case}>
@@ -115,7 +116,7 @@ export default function Callback() {
                     </div>
                 </div>
             </div>
-        </>
+        </Layout>
     );
 }
 // @ts-ignore

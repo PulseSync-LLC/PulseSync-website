@@ -2,17 +2,17 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
 import policy from "@/styles/Policy.module.scss";
-import Logo from "../../../public/fullLogo.svg";
+import Logo from "../../../public/assets/fullLogo.svg";
 import Link from "next/link";
-import Header from "@/components/header";
-import {Footer} from "@/components/footer";
+import Header from "src/components/layout/header";
+import {Footer} from "src/components/layout/footer";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import Layout from '@/components/layout'
 
 export default function Privacy() {
     return (
-        <>
+        <Layout title="Пользовательское соглашение">
             <div className="mainContainer">
-                <Header />
                 <div className={styles.contentCase}>
                     <div className={styles.contentCaseSizeble}>
                         <div className={policy.main}>
@@ -106,9 +106,8 @@ export default function Privacy() {
                         </div>
                     </div>
                 </div>
-                <Footer/>
             </div>
-        </>
+        </Layout>
     );
 }
 // @ts-ignore

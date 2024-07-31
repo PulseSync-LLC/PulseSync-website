@@ -1,16 +1,17 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
-import Welcome from "../../public/img/1.png";
-import Addons from "../../public/img/addons.png";
-import Build from "../../public/img/build.svg";
+import Welcome from "../../public/assets/img/1.png";
+import Addons from "../../public/assets/img/addons.png";
+import Build from "../../public/assets/img/build.svg";
 import { useState, useEffect } from "react";
 import Stargazers from "../interfaces/stargazers.interface";
 import { useTranslation } from 'next-i18next'
 import { MdTimer } from 'react-icons/md';
-import Header from "@/components/header";
-import {Footer} from "@/components/footer";
+import Header from "src/components/layout/header";
+import {Footer} from "src/components/layout/footer";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Layout from '@/components/layout'
 
 
 export default function Home() {
@@ -39,9 +40,8 @@ export default function Home() {
         fetchStargazers();
     }, []);
     return (
-        <>
+        <Layout title="Главная">
             <div className="mainContainer">
-                <Header />
                 <div className={styles.welcomeCase}>
                     <div className={styles.welcomeCaseSizeble}>
                         <Image src={t('pages.index.img_path')} width={500} height={300} unoptimized alt="" />
@@ -94,9 +94,8 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
-        </>
+        </Layout>
     );
 }
 

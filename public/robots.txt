@@ -7,3 +7,6 @@ Host: https://pulsesync.dev
 
 # Sitemaps
 Sitemap: https://pulsesync.dev/sitemap.xml
+
+# Sitemaps
+Sitemap: https://pulsesync.dev/sitemap-0.xml
