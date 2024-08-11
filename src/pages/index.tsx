@@ -1,15 +1,11 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
-import Welcome from "../../public/assets/img/1.png";
 import Addons from "../../public/assets/img/addons.png";
 import Build from "../../public/assets/img/build.svg";
 import { useState, useEffect } from "react";
 import Stargazers from "../interfaces/stargazers.interface";
 import { useTranslation } from 'next-i18next'
 import { MdTimer } from 'react-icons/md';
-import Header from "src/components/layout/header";
-import {Footer} from "src/components/layout/footer";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Layout from '@/components/layout'
 
