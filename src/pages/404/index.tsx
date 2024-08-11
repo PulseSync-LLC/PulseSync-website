@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "@/styles/404.module.scss";
 import { useEffect, useState } from "react";
 
-export default function Privacy() {
+export default function NotFound() {
     const [backgroundColor, setBackgroundColor] = useState('');
     const [imageSrc, setImageSrc] = useState('/assets/img/404.png');
 
