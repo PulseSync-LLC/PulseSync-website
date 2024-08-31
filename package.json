@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.4",
     "html-react-parser": "^5.1.10",
     "i18next": "^23.11.5",
     "next": "14.2.4",

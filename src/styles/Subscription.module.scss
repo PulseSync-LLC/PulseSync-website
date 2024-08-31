@@ -1,0 +1,92 @@
+.contentCaseSizeble {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.gradient {
+    background: linear-gradient(180deg, #1E2027 0%, rgba(30, 32, 39, 0) 100%);
+}
+
+.quoteBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 44px 25px;
+    gap: 38px;
+
+    width: 1000px;
+    max-width: 1000px;
+
+    &>.quoteContent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 12px;
+
+        &>.thankYouTitle {
+            font-weight: 900;
+            font-size: 16px;
+            line-height: 140%;
+
+            color: #FFFFFF;
+        }
+
+        &>.quoteText {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 140%;
+
+            color: #FFFFFF;
+
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: pre-line;
+
+
+            flex: none;
+            order: 1;
+            align-self: stretch;
+            flex-grow: 0;
+
+        }
+
+        &>.signature {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 140%;
+
+            text-align: right;
+
+            color: #FFFFFF;
+
+            flex: none;
+            order: 2;
+            align-self: stretch;
+            flex-grow: 0;
+        }
+    }
+
+    &>.quoteEnd {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 10px;
+        height: 100%;
+    }
+}
+
+
+.priceBlock {
+    display: flex;
+    flex-direction: row;
+    padding: 44px 25px;
+    gap: 6px;
+    justify-content: center;
+
+    width: 1000px;
+    max-width: 1000px;
+}

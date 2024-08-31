@@ -9,12 +9,13 @@ interface Props {
     description?: string
     image?: string
     background?: string
+    backgroundBody?: string
 
     headerColor?: string
     headerLinksColor?: string;
     headerLinksColorActive?: string;
     headerLinksHover?: string;
-    
+
     disableFooter?: boolean
     disableNavbar?: boolean
     disableButtonsNavbar?: boolean
@@ -29,6 +30,7 @@ const Layout: React.FC<Props> = ({
     disableNavbar,
     description,
     image,
+    backgroundBody = "#fff",
     headerColor,
     headerLinksColor,
     headerLinksColorActive,
@@ -72,6 +74,32 @@ const Layout: React.FC<Props> = ({
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://pulsesync.dev/" />
 
+                <style>{`
+                :root {
+                    --backgroundBody: ${backgroundBody};
+                }
+
+                html, body {
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #__next {
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 100vh;
+                }
+
+                .layout-container {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+                `}</style>
+
                 <link
                     rel="shortcut icon"
                     href="/assets/favicon.svg"
@@ -83,11 +111,19 @@ const Layout: React.FC<Props> = ({
                     type="image/x-icon"
                 />
             </Head>
-            {!disableNavbar && (<Header backgroundHex={headerColor} linksColor={headerLinksColor} linksColorActive={headerLinksColorActive} linksHover={headerLinksHover} />)}
-            {children}
-            {!disableFooter && (<Footer />)}
-        </>
-    )
-}
 
-export default Layout
+            {!disableNavbar && (
+                <Header
+                    backgroundHex={headerColor}
+                    linksColor={headerLinksColor}
+                    linksColorActive={headerLinksColorActive}
+                    linksHover={headerLinksHover}
+                />
+            )}
+            <div className="layout-container">{children}</div>
+            {!disableFooter && <Footer />}
+        </>
+    );
+};
+
+export default Layout;

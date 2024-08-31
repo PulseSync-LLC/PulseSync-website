@@ -11,7 +11,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background: #ffff;
+  background: var(--backgroundBody);
   padding: 0;
   margin: 0;
 }
