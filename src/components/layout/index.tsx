@@ -9,6 +9,12 @@ interface Props {
     description?: string
     image?: string
     background?: string
+
+    headerColor?: string
+    headerLinksColor?: string;
+    headerLinksColorActive?: string;
+    headerLinksHover?: string;
+    
     disableFooter?: boolean
     disableNavbar?: boolean
     disableButtonsNavbar?: boolean
@@ -16,14 +22,18 @@ interface Props {
 }
 
 const Layout: React.FC<Props> = ({
-                                     children,
-                                     title,
-                                     background,
-                                     disableFooter,
-                                     disableNavbar,
-                                     description,
-                                     image,
-                                 }) => {
+    children,
+    title,
+    background,
+    disableFooter,
+    disableNavbar,
+    description,
+    image,
+    headerColor,
+    headerLinksColor,
+    headerLinksColorActive,
+    headerLinksHover,
+}) => {
     return (
         <>
             <Head>
@@ -73,7 +83,7 @@ const Layout: React.FC<Props> = ({
                     type="image/x-icon"
                 />
             </Head>
-            {!disableNavbar && (<Header />)}
+            {!disableNavbar && (<Header backgroundHex={headerColor} linksColor={headerLinksColor} linksColorActive={headerLinksColorActive} linksHover={headerLinksHover} />)}
             {children}
             {!disableFooter && (<Footer />)}
         </>
