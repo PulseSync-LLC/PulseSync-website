@@ -4,6 +4,7 @@ import Logo from "../../../../public/assets/miniLogo.svg";
 import Image from "next/image";
 import React from "react";
 import { useRouter } from "next/router";
+import { useTranslation } from 'next-i18next';
 
 interface Cosmetic {
     backgroundHex?: string;
@@ -13,12 +14,14 @@ interface Cosmetic {
 }
 
 const Header: React.FC<Cosmetic> = ({
-    backgroundHex = "#3468F2",
+    backgroundHex = "#1E2027",
     linksColor = "#FFFFFF",
-    linksColorActive = "#f5ffa4",
-    linksHover = "#f0ffc3",
+    linksColorActive = "#A4BAFF",
+    linksHover = "#c3d2ff",
 }) => {
     const router = useRouter();
+
+    const { t } = useTranslation('common');
 
     const getLinkClass = (path: string) => {
         return router.pathname === path ? `${styles.links} ${styles.active}` : styles.links;
@@ -44,16 +47,16 @@ const Header: React.FC<Cosmetic> = ({
                         </Link>
                         <div className={styles.nav_links}>
                             <Link href="/" className={getLinkClass("/")}>
-                                главная
+                                {t('components.header.home')}
                             </Link>
                             <Link href="/subscription" className={getLinkClass("/subscription")}>
-                                подписка
+                                {t('components.header.subscription')}
                             </Link>
                         </div>
                     </div>
                     <div className={styles.rightSide}>
-                        <Link href="/" className={getLinkClass("/")}>
-                            войти (only dev)
+                        <Link href="/" className={getLinkClass("/login")}>
+                            {t('components.header.login')}
                         </Link>
                     </div>
                 </div>

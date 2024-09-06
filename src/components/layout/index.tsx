@@ -30,7 +30,7 @@ const Layout: React.FC<Props> = ({
     disableNavbar,
     description,
     image,
-    backgroundBody = "#fff",
+    backgroundBody = "#14151C",
     headerColor,
     headerLinksColor,
     headerLinksColorActive,

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import styles from "@/styles/Pricecontainer.module.scss";
 import { MdBlock, MdCheckCircleOutline, MdRemoveCircleOutline } from 'react-icons/md';
+import { useTranslation } from 'next-i18next';
 
 interface Subscription {
     name: string;
@@ -12,53 +13,57 @@ interface Subscription {
     secretcard?: boolean;
 }
 
-const subscriptions: Subscription[] = [
-    {
-        secretcard: false,
-        name: 'Free',
-        priceMonthly: 'Бесплатно',
-        priceYearly: 'Бесплатно',
-        benefits: ['Поддержать разработчиков', 'Темы для Яндекс Музыка', 'Discord RPC'],
-        colors: ['#91BDE7', "#405568", "#314251", "#34BFF2", "#7B97B2"],
-    },
-    {
-        secretcard: false,
-        name: 'Basic',
-        priceMonthly: '40₽/мес',
-        priceYearly: '408₽/год',
-        benefits: ['Темы для Яндекс Музыка', 'Discord RPC', 'Расширенные настройки статуса Discord RPC', 'Уникальный значок', 'Редактирование баннера в профиле', 'Роль на сервере Discord', 'Поддержать разработчиков'],
-        colors: ['#90A9EA', "#414C69", "#333C54", "#3468F2", "#7F8FB8"],
-    },
-    {
-        secretcard: false,
-        name: 'Infinite',
-        priceMonthly: '90₽/мес',
-        priceYearly: '918₽/год',
-        benefits: ['Темы для Яндекс Музыка', 'Discord RPC', 'Расширенные настройки статуса Discord RPC', 'Уникальный значок', 'Редактирование баннера в профиле', 'Роль на сервере Discord', 'Что-то что будет скоро', 'Поддержать разработчиков'],
-        colors: ['#A493E9', "#484069", "#3B3455", "#8934F2", "#8C80BE"],
-    },
-];
-
-const renderBenefits = (benefit: string, currentSubscription: Subscription) => {
-    if (currentSubscription.secretcard) {
-        return <div className={styles.benefit} style={{ color: '#C05A5A' }}><MdBlock size={20} /> {benefit}</div>;
-    }
-
-    const higherTiers = subscriptions.slice(subscriptions.indexOf(currentSubscription) + 1);
-
-    const isAvailable = currentSubscription.benefits.includes(benefit);
-    const isAvailableInHigherTier = higherTiers.some((sub) => sub.benefits.includes(benefit));
-
-    if (isAvailable) {
-        return <div className={styles.benefit} style={{ color: '#fff' }}><MdCheckCircleOutline size={20} /> {benefit}</div>;
-    } else if (isAvailableInHigherTier) {
-        return <div className={styles.benefit} style={{ color: "var(--linksColor4)" }}><MdRemoveCircleOutline size={20} /> {benefit}</div>;
-    } else {
-        return <div className={styles.benefit} style={{ color: '#C05A5A' }}><MdBlock size={20} /> {benefit}</div>;
-    }
-};
-
 const PriceContainer: React.FC = () => {
+    const { t } = useTranslation('common');
+
+    const subscriptions: Subscription[] = [
+        {
+            secretcard: false,
+            name: 'Free',
+            priceMonthly: t('components.subscription.plans.free'),
+            priceYearly: t('components.subscription.plans.free'),
+            benefits: [
+                t('components.subscription.plans.benefits.supportDevelopers'),
+                t('components.subscription.plans.benefits.themesForYandexMusic'),
+                t('components.subscription.plans.benefits.discordRPC')
+            ],
+            colors: ['#91BDE7', "#405568", "#314251", "#34BFF2", "#7B97B2"],
+        },
+        {
+            secretcard: false,
+            name: 'Basic',
+            priceMonthly: t('components.subscription.plans.basicMonthly'),
+            priceYearly: t('components.subscription.plans.basicYearly'),
+            benefits: [
+                t('components.subscription.plans.benefits.themesForYandexMusic'),
+                t('components.subscription.plans.benefits.discordRPC'),
+                t('components.subscription.plans.benefits.advancedRPCSettings'),
+                t('components.subscription.plans.benefits.uniqueBadge'),
+                t('components.subscription.plans.benefits.editProfileBanner'),
+                t('components.subscription.plans.benefits.discordRole'),
+                t('components.subscription.plans.benefits.supportDevelopers')
+            ],
+            colors: ['#90A9EA', "#414C69", "#333C54", "#3468F2", "#7F8FB8"],
+        },
+        {
+            secretcard: false,
+            name: 'Infinite',
+            priceMonthly: t('components.subscription.plans.infiniteMonthly'),
+            priceYearly: t('components.subscription.plans.infiniteYearly'),
+            benefits: [
+                t('components.subscription.plans.benefits.themesForYandexMusic'),
+                t('components.subscription.plans.benefits.discordRPC'),
+                t('components.subscription.plans.benefits.advancedRPCSettings'),
+                t('components.subscription.plans.benefits.uniqueBadge'),
+                t('components.subscription.plans.benefits.editProfileBanner'),
+                t('components.subscription.plans.benefits.discordRole'),
+                t('components.subscription.plans.benefits.comingSoon'),
+                t('components.subscription.plans.benefits.supportDevelopers')
+            ],
+            colors: ['#A493E9', "#484069", "#3B3455", "#8934F2", "#8C80BE"],
+        },
+    ];
+
     const [isMonthly, setIsMonthly] = useState(true);
 
     const springProps = useSpring({
@@ -79,6 +84,25 @@ const PriceContainer: React.FC = () => {
 
     const toggleSubscriptionType = () => {
         setIsMonthly(prev => !prev);
+    };
+
+    const renderBenefits = (benefit: string, currentSubscription: Subscription) => {
+        if (currentSubscription.secretcard) {
+            return <div className={styles.benefit} style={{ color: '#C05A5A' }}><MdBlock size={20} /> {benefit}</div>;
+        }
+
+        const higherTiers = subscriptions.slice(subscriptions.indexOf(currentSubscription) + 1);
+
+        const isAvailable = currentSubscription.benefits.includes(benefit);
+        const isAvailableInHigherTier = higherTiers.some((sub) => sub.benefits.includes(benefit));
+
+        if (isAvailable) {
+            return <div className={styles.benefit} style={{ color: '#fff' }}><MdCheckCircleOutline size={20} /> {benefit}</div>;
+        } else if (isAvailableInHigherTier) {
+            return <div className={styles.benefit} style={{ color: "var(--linksColor4)" }}><MdRemoveCircleOutline size={20} /> {benefit}</div>;
+        } else {
+            return <div className={styles.benefit} style={{ color: '#C05A5A' }}><MdBlock size={20} /> {benefit}</div>;
+        }
     };
 
     return (
@@ -118,13 +142,13 @@ const PriceContainer: React.FC = () => {
                                         className={isMonthly ? styles.activeSelectButton : styles.selectButtons}
                                         onClick={() => setIsMonthly(true)}
                                     >
-                                        В месяц
+                                        {t('components.subscription.perMonth')}
                                     </button>
                                     <button
                                         className={!isMonthly ? styles.activeSelectButton : styles.selectButtons}
                                         onClick={() => setIsMonthly(false)}
                                     >
-                                        В год
+                                        {t('components.subscription.perYear')}
                                     </button>
                                 </div>
                             </div>

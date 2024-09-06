@@ -1,14 +1,14 @@
 import styles from "@/styles/Home.module.scss";
 import policy from "@/styles/Policy.module.scss";
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Layout from '@/components/layout'
 
 export default function Privacy() {
     return (
-        <Layout title="Пользовательское соглашение">
-            <div className="mainContainer">
-                <div className={styles.contentCase}>
-                    <div className={styles.contentCaseSizeble}>
+        <Layout headerColor="#171821" title="Пользовательское соглашение">
+            <div className={styles.mainContainer}>
+                <div className={styles.contentSection}>
+                    <div className={styles.sectionWrapper}>
                         <div className={policy.main}>
                             <div>
                                 <div className={policy.header}>

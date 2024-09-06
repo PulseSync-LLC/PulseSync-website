@@ -1,5 +1,7 @@
-import styles from "@/styles/Home.module.scss";
+import Image from 'next/image'; // Добавьте этот импорт
+import styles from "@/styles/Footer.module.scss";
 import Link from "next/link";
+import Logo from "../../../../public/assets/miniLogoFooter.svg";
 import { useTranslation } from 'next-i18next';
 
 export const Footer = () => {
@@ -7,26 +9,29 @@ export const Footer = () => {
 
     return (
         <div className={`${styles.footerCase}`}>
-            <div className={styles.footerInfo}>
-                <div className={styles.footerLinks}>
-                    <span className={styles.infoLinks}>{t('components.footer.social_media')}</span>
-                    <div className={styles.links}>
-                        <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy">Discord</a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt">Boosty</a>
+            <div className={`${styles.footerContent}`}>
+                <div className={`${styles.footerLeft}`}>
+                    <Image src={Logo} width={45} height={45} quality={100} unoptimized alt="" />
+                    <div className={`${styles.footerLeftContainer}`}>
+                        <p className={`${styles.footerLeftText}`}>{t('components.footer.copyright', { year: new Date().getFullYear() })}  {t('components.footer.ip', { name: 'Деднев Григорий Дмитриевич' })}</p>
+                        <p className={`${styles.footerLeftText}`}>{t('components.footer.email', { email: 'contact@pulsesync.dev' })}</p>
+                        <p className={`${styles.footerLeftText}`}>{t('components.footer.inn', { inn: '775110786608' })}</p>
+                        <p className={`${styles.footerLeftText}`}>{t('components.footer.address', { city: 'Москва', code: '108803' })}</p>
                     </div>
                 </div>
-                <div className={styles.footerLinks}>
-                    <span className={styles.infoLinks}>{t('components.footer.policy')}</span>
-                    <div className={styles.links}>
-                        <Link href="/terms">{t('components.footer.terms_of_use')}</Link>
-                        <Link href="/privacy">{t('components.footer.privacy')}</Link>
+                <div className={`${styles.footerRight}`}>
+                    <div className={`${styles.footerRightItem}`}>
+                        <p className={`${styles.footerRightTitle}`}>{t('components.footer.resources')}</p>
+                        <Link href={"https://discord.gg/qy42uGTzRy"} className={`${styles.footerRightLink}`} target="_blank" rel="noopener noreferrer">{t('components.footer.discord')}</Link>
+                        <Link href={"https://github.com/PulseSync-LLC/YMusic-DRPC"} className={`${styles.footerRightLink}`} target="_blank" rel="noopener noreferrer">{t('components.footer.github')}</Link>
+                        <Link href={"/wiki"} className={`${styles.footerRightLink}`} target="_blank" rel="noopener noreferrer">{t('components.footer.wiki')}</Link>
+                        <Link href={"/status"} className={`${styles.footerRightLink}`} target="_blank" rel="noopener noreferrer">{t('components.footer.status')}</Link>
                     </div>
-                </div>
-                <div className={styles.footerLinks}>
-                    <span className={styles.infoLinks}>{t('components.footer.resources')}</span>
-                    <div className={styles.links}>
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PulseSync-Official/YMusic-DRPC">Github</a>
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/PulseSync-Official/YMusic-DRPC/wiki">Wiki</a>
+                    <div className={`${styles.footerRightItem}`}>
+                        <p className={`${styles.footerRightTitle}`}>{t('components.footer.politics')}</p>
+                        <Link href={"/terms"} className={`${styles.footerRightLink}`} target="_blank" rel="noopener noreferrer">{t('components.footer.terms')}</Link>
+                        <Link href={"/privacy"} className={`${styles.footerRightLink}`} target="_blank" rel="noopener noreferrer">{t('components.footer.privacy')}</Link>
+                        <Link href={"/cookies"} className={`${styles.footerRightLink}`} target="_blank" rel="noopener noreferrer">{t('components.footer.cookies')}</Link>
                     </div>
                 </div>
             </div>

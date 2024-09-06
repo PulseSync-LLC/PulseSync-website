@@ -1,0 +1,104 @@
+.footerCase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+
+    background: #171921;
+
+    &>.footerContent {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 44px 25px;
+
+        width: -webkit-fill-available;
+        max-width: 1000px;
+
+        &>.footerLeft {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 22px;
+
+            width: fit-content;
+
+            &>.footerLeftContainer {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 5px;
+
+                &>.footerLeftText {
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    margin: 0;
+
+                    color: #AFBCF1;
+                }
+            }
+        }
+
+        &>.footerRight {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 74px;
+
+            &>.footerRightItem {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 7px;
+
+                border-radius: 10px;
+
+                &>.footerRightTitle {
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 19px;
+                    margin: 0;
+                    margin-bottom: 3px;
+
+                    color: #7784B8;
+                }
+
+                &>.footerRightLink {
+                    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    background: #171921;
+                    outline: 0px solid #171921;
+                    border-radius: 5px;
+
+                    color: #BECBFF;
+                    &:hover{
+                        color: #fff;
+                        background: #2D57C7;
+                        outline: 5px solid #2D57C7;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 971px) {
+    .footerCase {
+        .footerContent {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+    }
+}

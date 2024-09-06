@@ -5,10 +5,10 @@ import Layout from '@/components/layout'
 
 export default function Privacy() {
     return (
-        <Layout title="Политика конфиденциальности">
-            <div className="mainContainer">
-                <div className={styles.contentCase}>
-                    <div className={styles.contentCaseSizeble}>
+        <Layout headerColor="#171821" title="Политика конфиденциальности">
+            <div className={styles.mainContainer}>
+                <div className={styles.contentSection}>
+                    <div className={styles.sectionWrapper}>
                         <div className={policy.main}>
                             <div>
                                 <div className={policy.header}>

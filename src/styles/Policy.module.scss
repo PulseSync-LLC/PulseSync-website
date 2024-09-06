@@ -8,7 +8,7 @@
         font-size: 15px;
         line-height: 240%;
 
-        color: #1E2027;
+        color: #fff;
     }
 
     div {
@@ -20,7 +20,7 @@
         font-size: 16px;
         line-height: 140%;
 
-        color: #1E2027;
+        color: #fff;
 
         .header {
             display: flex;
@@ -33,7 +33,7 @@
                 line-height: 140%;
 
                 text-indent: 0;
-                color: #1E2027;
+                color: #fff;
             }
 
             .title {
@@ -42,7 +42,7 @@
                 line-height: 140%;
 
                 text-indent: 0;
-                color: #1E2027;
+                color: #fff;
             }
         }
 
@@ -51,7 +51,7 @@
             font-size: 14px;
             line-height: 140%;
 
-            color: #1E2027;
+            color: #fff;
         }
 
         >div {
@@ -62,16 +62,28 @@
             font-weight: 700;
             font-size: 14px;
             line-height: 140%;
-            color: #1E2027;
+            color: #fff;
 
             p {
                 display: inline-block;
                 margin: 0;
 
                 a {
+                    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                     display: inline-block;
                     text-indent: 0px;
-                    color: blue;
+                    color: rgb(141, 141, 255);
+                    background: #171921;
+                    outline: 0px solid #171921;
+                    border-radius: 5px;
+
+                    color: #BECBFF;
+                    &:hover{
+                        color: #fff;
+                        background: #2D57C7;
+                        outline: 5px solid #2D57C7;
+                        border-radius: 5px;
+                    }
                 }
             }
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "@/styles/Callback.module.scss";
-import {Trans, useTranslation} from 'next-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 import ErrorConnect from "../../../public/assets/authAssest/ErrorConnect.svg";
 import ImgConnect from "../../../public/assets/authAssest/Connect.svg";
 import Logo from "../../../public/assets/fullLogo.svg";
@@ -65,31 +65,41 @@ export default function Callback() {
             <div className="mainContainer">
                 <div className={styles.container}>
                     <div className={styles.case}>
-                        <div>
-                            <div className={styles.logoPlace}>
-                                <Image src={Logo} alt={""} />
-                            </div>
-                            <div className={styles.containerBG}>
-                                {!loading ? (
+                        {!loading ? (
+                            <div>
+                                <div className={styles.logoPlace}>
+                                    {!user.ban && isBeta && (
+                                        !error ? <Image className={styles.imgStatus} src={ImgConnect} alt="" /> : <Image className={styles.imgStatus} src={ErrorConnect} alt="" />
+                                    )}
+                                </div>
+                                <div className={styles.containerBG}>
                                     <div className={styles.backgroundContainer}>
                                         <img className={styles.backgroundImg}
                                             src={user.avatar}
                                             alt="" />
-                                        {!user.ban && isBeta && (
-                                            !error ? <Image className={styles.imgStatus} src={ImgConnect} alt="" /> : <Image className={styles.imgStatus} src={ErrorConnect} alt="" />
-                                        )}
-                                        <div>
-                                            <span>{user.ban ? t("components.errors.ban") : !isBeta ? t("components.errors.noBeta") : null}</span>
-                                            <span>{error ? t("components.errors.error") : user.ban ? t("components.errors.forbiddenBan") : !isBeta ? t("components.errors.forbidden") : t("pages.callback.auth.success")}</span>
-                                        </div>
                                         {!isBeta && !user.ban ? (
                                             <p className={styles.alert}>
                                                 <Trans i18nKey="pages.callback.auth.no_beta" components={{ 1: <a className={styles.boosty} target="_blank" rel="noopener noreferrer" href="https://boosty.to/evt"></a>, 3: <a className={styles.discord} target="_blank" rel="noopener noreferrer" href="https://discord.gg/qy42uGTzRy"></a> }} />
                                             </p>
                                         ) : null}
                                         {user.ban ? <p className={styles.alert}>{t("components.errors.banReason")} {user.ban.reason}</p> : null}
+                                        <div>
+                                            <span>{user.ban ? t("components.errors.ban") : !isBeta ? t("components.errors.noBeta") : null}</span>
+                                            <span>{error ? t("components.errors.error") : user.ban ? t("components.errors.forbiddenBan") : !isBeta ? t("components.errors.forbidden") : t("pages.callback.auth.success")}</span>
+                                        </div>
                                     </div>
-                                ) : (
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                                <div className={styles.logoPlace}>
+                                    <Skeleton
+                                        className={styles.backgroundImg}
+                                        width={101}
+                                        height={45}
+                                    />
+                                </div>
+                                <div className={styles.containerBG}>
                                     <div className={styles.backgroundContainer}>
                                         <Skeleton
                                             className={styles.backgroundImg}
@@ -100,19 +110,14 @@ export default function Callback() {
                                         <div>
                                             <Skeleton
                                                 className={styles.backgroundImg}
-                                                width={182}
-                                                height={27}
-                                            />
-                                            <Skeleton
-                                                className={styles.backgroundImg}
                                                 width={121}
                                                 height={20}
                                             />
                                         </div>
                                     </div>
-                                )}
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
