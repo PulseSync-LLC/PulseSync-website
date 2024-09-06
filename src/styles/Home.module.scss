@@ -24,20 +24,6 @@
     width: 100%;
     position: relative;
 
-    &::after {
-      content: "";
-      background-image: radial-gradient(ellipse farthest-side, #c974501c, transparent);
-      background-size: 40%;
-      background-repeat: no-repeat;
-      background-position: center center;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: -90%;
-      left: -40%;
-      pointer-events: none;
-    }
-
     &>.mediaVideo {
       height: 413px;
       height: 297px;
@@ -211,11 +197,6 @@
     flex-direction: column !important;
     gap: 38px;
     max-width: -webkit-fill-available !important;
-
-    &::after {
-      right: -140% !important;
-      left: -140% !important;
-    }
 
     &>.textContainer {
       order: 2;
