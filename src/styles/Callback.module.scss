@@ -5,7 +5,8 @@
     align-items: center;
     height: 100vh;
     gap: 15px;
-    background: linear-gradient(180deg, #171821 0%, rgba(23, 24, 33, 0) 100%), #14151C;
+    background: linear-gradient(180deg, #171821 0%, rgba(23, 24, 33, 0) 100%),
+        #14151c;
 
     .case {
         display: flex;
@@ -44,7 +45,7 @@
                 padding: 20px;
                 gap: 10px;
 
-                background: #2F3142;
+                background: #2f3142;
                 border-radius: 15px;
 
                 .backgroundContainer {
@@ -62,7 +63,7 @@
                     line-height: 140%;
                     text-align: center;
 
-                    color: #FFFFFF;
+                    color: #ffffff;
 
                     img:nth-child(1) {
                         border-radius: 500px;
@@ -70,7 +71,7 @@
                         height: 88px;
                     }
 
-                    >div {
+                    > div {
                         display: flex;
                         gap: 2px;
 
@@ -81,7 +82,7 @@
                             line-height: 140%;
                             text-align: center;
 
-                            color: #FFFFFF;
+                            color: #ffffff;
                         }
                     }
 
@@ -91,7 +92,6 @@
                 }
             }
         }
-
     }
 
     span:nth-child(1) {
@@ -100,7 +100,7 @@
         line-height: 27px;
         text-align: center;
 
-        color: #FFFFFF;
+        color: #ffffff;
     }
 
     span:nth-child(2) {
@@ -110,11 +110,9 @@
         line-height: 140%;
         text-align: center;
 
-        color: #FFFFFF;
+        color: #ffffff;
     }
 }
-
-
 
 .alert {
     display: inline-block;
@@ -125,7 +123,7 @@
     line-height: 140%;
     text-align: center;
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     .boosty,
     .discord {
@@ -134,11 +132,11 @@
 
     .boosty {
         font-weight: 800;
-        color: #E56F28;
+        color: #e56f28;
     }
 
     .discord {
         font-weight: 800;
-        color: #85A0FF;
+        color: #85a0ff;
     }
 }

@@ -1,70 +1,69 @@
 .nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px;
-
-  width: -webkit-fill-available;
-
-
-  &>.headerSizeble {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 15px 25px;
-    gap: 20px;
+    padding: 0px;
+
     width: -webkit-fill-available;
-    max-width: 1000px;
 
-    &>.leftSide {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 0px;
-      gap: 25px;
-
-      &>.nav_links {
+    & > .headerSizeble {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        padding: 0px;
+        padding: 15px 25px;
         gap: 20px;
+        width: -webkit-fill-available;
+        max-width: 1000px;
 
-        margin: 0 0 0 auto;
-      }
+        & > .leftSide {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
+            gap: 25px;
+
+            & > .nav_links {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0px;
+                gap: 20px;
+
+                margin: 0 0 0 auto;
+            }
+        }
+
+        & > .rightSide {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
+            gap: 20px;
+
+            margin: 0 0 0 auto;
+        }
     }
-
-    &>.rightSide {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 0px;
-      gap: 20px;
-
-      margin: 0 0 0 auto;
-    }
-  }
 }
 
 .links {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 22px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
 
-  color: var(--linksColor);
+    color: var(--linksColor);
 
-  &:hover {
-    color: var(--linksHover);
-  }
+    &:hover {
+        color: var(--linksHover);
+    }
 }
 
 .active {
-  font-weight: 800;
+    font-weight: 800;
 
-  color: var(--linksColorActive);
+    color: var(--linksColorActive);
 
-  &:hover {
-    color: var(--linksHover);
-  }
+    &:hover {
+        color: var(--linksHover);
+    }
 }

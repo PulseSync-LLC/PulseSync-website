@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 * {
-  font-family: "Nunito Sans", sans-serif;
-  color: var(--color1);
-  stroke: var(--color1);
-  max-width: -webkit-fill-available;
-  text-decoration: unset;
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--color1);
+    stroke: var(--color1);
+    max-width: -webkit-fill-available;
+    text-decoration: unset;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  background: var(--backgroundBody);
-  padding: 0;
-  margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--backgroundBody);
+    padding: 0;
+    margin: 0;
 }
 
 a {
-  display: flex;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
