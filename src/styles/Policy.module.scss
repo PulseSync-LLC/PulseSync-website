@@ -54,7 +54,7 @@
             color: #fff;
         }
 
-        >div {
+        > div {
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -77,20 +77,20 @@
                     outline: 0px solid #171921;
                     border-radius: 5px;
 
-                    color: #BECBFF;
-                    &:hover{
+                    color: #becbff;
+                    &:hover {
                         color: #fff;
-                        background: #2D57C7;
-                        outline: 5px solid #2D57C7;
+                        background: #2d57c7;
+                        outline: 5px solid #2d57c7;
                         border-radius: 5px;
                     }
                 }
             }
 
-            >div {
+            > div {
                 text-indent: 30px;
 
-                >div {
+                > div {
                     text-indent: 60px;
                 }
             }

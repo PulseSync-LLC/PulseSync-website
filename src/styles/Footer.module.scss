@@ -6,7 +6,7 @@
 
     background: #171921;
 
-    &>.footerContent {
+    & > .footerContent {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -16,7 +16,7 @@
         width: -webkit-fill-available;
         max-width: 1000px;
 
-        &>.footerLeft {
+        & > .footerLeft {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -26,25 +26,25 @@
 
             width: fit-content;
 
-            &>.footerLeftContainer {
+            & > .footerLeftContainer {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 0px;
                 gap: 5px;
 
-                &>.footerLeftText {
+                & > .footerLeftText {
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 19px;
                     margin: 0;
 
-                    color: #AFBCF1;
+                    color: #afbcf1;
                 }
             }
         }
 
-        &>.footerRight {
+        & > .footerRight {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -52,7 +52,7 @@
             padding: 0px;
             gap: 74px;
 
-            &>.footerRightItem {
+            & > .footerRightItem {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -61,17 +61,17 @@
 
                 border-radius: 10px;
 
-                &>.footerRightTitle {
+                & > .footerRightTitle {
                     font-weight: 700;
                     font-size: 14px;
                     line-height: 19px;
                     margin: 0;
                     margin-bottom: 3px;
 
-                    color: #7784B8;
+                    color: #7784b8;
                 }
 
-                &>.footerRightLink {
+                & > .footerRightLink {
                     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                     font-weight: 400;
                     font-size: 16px;
@@ -80,11 +80,11 @@
                     outline: 0px solid #171921;
                     border-radius: 5px;
 
-                    color: #BECBFF;
-                    &:hover{
+                    color: #becbff;
+                    &:hover {
                         color: #fff;
-                        background: #2D57C7;
-                        outline: 5px solid #2D57C7;
+                        background: #2d57c7;
+                        outline: 5px solid #2d57c7;
                         border-radius: 5px;
                     }
                 }

@@ -1,9 +1,9 @@
-import BanInterface from "@/api/interface/ban.interface";
+import BanInterface from '@/api/interface/ban.interface'
 
 const BanInitials: BanInterface = {
-    uuid: "",
+    uuid: '',
     type: [0],
-    reason: "",
-    createdAt: "",
+    reason: '',
+    createdAt: '',
 }
-export default BanInitials;
+export default BanInitials

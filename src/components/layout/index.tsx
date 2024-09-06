@@ -12,9 +12,9 @@ interface Props {
     backgroundBody?: string
 
     headerColor?: string
-    headerLinksColor?: string;
-    headerLinksColorActive?: string;
-    headerLinksHover?: string;
+    headerLinksColor?: string
+    headerLinksColorActive?: string
+    headerLinksHover?: string
 
     disableFooter?: boolean
     disableNavbar?: boolean
@@ -30,7 +30,7 @@ const Layout: React.FC<Props> = ({
     disableNavbar,
     description,
     image,
-    backgroundBody = "#14151C",
+    backgroundBody = '#14151C',
     headerColor,
     headerLinksColor,
     headerLinksColorActive,
@@ -123,7 +123,7 @@ const Layout: React.FC<Props> = ({
             <div className="layout-container">{children}</div>
             {!disableFooter && <Footer />}
         </>
-    );
-};
+    )
+}
 
-export default Layout;
+export default Layout

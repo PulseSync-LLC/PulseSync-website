@@ -1,77 +1,77 @@
 {
-  "components": {
-    "header": {
-      "home": "Home",
-      "subscription": "Subscription",
-      "login": "Login"
-    },
-    "subscription": {
-      "tYT": "Thank you for supporting PulseSync!",
-      "qT1": "We created PulseSync based on our own vision and desire to build something we would want to use every day. We are not aiming to turn this project into a business; instead, we focus on creating the best experience for you. PulseSync remains open, ad-free, and free from anything that could detract from your experience.",
-      "qT2": "Supporting PulseSync is not just about helping the project but expressing trust in our vision and efforts. It won’t give you any special benefits but will make you part of our friendly team and maybe a bit cooler in your friends' eyes! :) Your contributions help us cover server costs and continue developing PulseSync. We sincerely thank each of you for your support. Together, we’re creating something special!",
-      "signature": "— With gratitude, Maxim ‘Maks1mio’ and the PulseSync team!",
-      "perMonth": "per month",
-      "perYear": "per year",
-      "plans": {
-        "free": "Free",
-        "basicMonthly": "40₽/month",
-        "basicYearly": "408₽/year",
-        "infiniteMonthly": "90₽/month",
-        "infiniteYearly": "918₽/year",
-        "benefits": {
-          "supportDevelopers": "Support Developers",
-          "themesForYandexMusic": "Themes for Yandex Music",
-          "discordRPC": "Discord RPC",
-          "advancedRPCSettings": "Advanced Discord RPC Status Settings",
-          "uniqueBadge": "Unique Badge",
-          "editProfileBanner": "Edit Profile Banner",
-          "discordRole": "Discord Server Role",
-          "comingSoon": "Something coming soon"
+    "components": {
+        "header": {
+            "home": "Home",
+            "subscription": "Subscription",
+            "login": "Login"
+        },
+        "subscription": {
+            "tYT": "Thank you for supporting PulseSync!",
+            "qT1": "We created PulseSync based on our own vision and desire to build something we would want to use every day. We are not aiming to turn this project into a business; instead, we focus on creating the best experience for you. PulseSync remains open, ad-free, and free from anything that could detract from your experience.",
+            "qT2": "Supporting PulseSync is not just about helping the project but expressing trust in our vision and efforts. It won’t give you any special benefits but will make you part of our friendly team and maybe a bit cooler in your friends' eyes! :) Your contributions help us cover server costs and continue developing PulseSync. We sincerely thank each of you for your support. Together, we’re creating something special!",
+            "signature": "— With gratitude, Maxim ‘Maks1mio’ and the PulseSync team!",
+            "perMonth": "per month",
+            "perYear": "per year",
+            "plans": {
+                "free": "Free",
+                "basicMonthly": "40₽/month",
+                "basicYearly": "408₽/year",
+                "infiniteMonthly": "90₽/month",
+                "infiniteYearly": "918₽/year",
+                "benefits": {
+                    "supportDevelopers": "Support Developers",
+                    "themesForYandexMusic": "Themes for Yandex Music",
+                    "discordRPC": "Discord RPC",
+                    "advancedRPCSettings": "Advanced Discord RPC Status Settings",
+                    "uniqueBadge": "Unique Badge",
+                    "editProfileBanner": "Edit Profile Banner",
+                    "discordRole": "Discord Server Role",
+                    "comingSoon": "Something coming soon"
+                }
+            }
+        },
+        "footer": {
+            "copyright": "© 2024 ",
+            "ip": "Individual Entrepreneur ‘Denev Grigoriy Dmitrievich’",
+            "email": "EMAIL: contact@pulsesync.dev",
+            "inn": "INN 775110786608",
+            "address": "Moscow, 108803",
+            "resources": "Resources",
+            "discord": "Discord",
+            "github": "Github",
+            "wiki": "Wiki",
+            "status": "Status",
+            "politics": "Policy",
+            "terms": "Terms of Service",
+            "privacy": "Privacy Policy",
+            "cookies": "Cookie"
+        },
+        "errors": {
+            "forbiddenBan": "Access denied, oops :)",
+            "forbidden": "Access denied",
+            "ban": "Looks like you’re banned!",
+            "noBeta": "You are not a beta tester",
+            "error": "Something went wrong",
+            "unknown": "Unknown error, please contact the administrator",
+            "notFound": "Not found 😢",
+            "banReason": "Reason: "
         }
-      }
     },
-    "footer": {
-      "copyright": "© 2024 ",
-      "ip": "Individual Entrepreneur ‘Denev Grigoriy Dmitrievich’",
-      "email": "EMAIL: contact@pulsesync.dev",
-      "inn": "INN 775110786608",
-      "address": "Moscow, 108803",
-      "resources": "Resources",
-      "discord": "Discord",
-      "github": "Github",
-      "wiki": "Wiki",
-      "status": "Status",
-      "politics": "Policy",
-      "terms": "Terms of Service",
-      "privacy": "Privacy Policy",
-      "cookies": "Cookie"
-    },
-    "errors": {
-      "forbiddenBan": "Access denied, oops :)",
-      "forbidden": "Access denied",
-      "ban": "Looks like you’re banned!",
-      "noBeta": "You are not a beta tester",
-      "error": "Something went wrong",
-      "unknown": "Unknown error, please contact the administrator",
-      "notFound": "Not found 😢",
-      "banReason": "Reason: "
+    "pages": {
+        "callback": {
+            "auth": {
+                "success": "You are authorized, please return to the application",
+                "no_beta": "To gain access, you need a subscription to <1>Boosty</1> or to boost our Discord server <3>Discord</3>. Access to the beta will be granted afterward."
+            }
+        },
+        "index": {
+            "img_path": "/assets/img/1.png",
+            "welcome_title": "The best app for Yandex Music integration",
+            "welcome_description": "PulseSync is a project that integrates with Yandex Music. The program also supports Yandex Music Discord RPC status, custom themes, and scripts.",
+            "coming_soon": "Coming soon",
+            "addons_title": "How about extensions!",
+            "addons_description": "You have the ability to customize the look and functionality as you like. Create your own addons by adding unique visual and functional elements. If you don’t want to create your own, you can download ready-made solutions from other users and developers on our Discord server.",
+            "stargazers_thankyou": "Thank you to the stargazers on GitHub"
+        }
     }
-  },
-  "pages": {
-    "callback": {
-      "auth": {
-        "success": "You are authorized, please return to the application",
-        "no_beta": "To gain access, you need a subscription to <1>Boosty</1> or to boost our Discord server <3>Discord</3>. Access to the beta will be granted afterward."
-      }
-    },
-    "index": {
-      "img_path": "/assets/img/1.png",
-      "welcome_title": "The best app for Yandex Music integration",
-      "welcome_description": "PulseSync is a project that integrates with Yandex Music. The program also supports Yandex Music Discord RPC status, custom themes, and scripts.",
-      "coming_soon": "Coming soon",
-      "addons_title": "How about extensions!",
-      "addons_description": "You have the ability to customize the look and functionality as you like. Create your own addons by adding unique visual and functional elements. If you don’t want to create your own, you can download ready-made solutions from other users and developers on our Discord server.",
-      "stargazers_thankyou": "Thank you to the stargazers on GitHub"
-    }
-  }
 }

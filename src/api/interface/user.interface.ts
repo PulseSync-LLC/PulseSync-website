@@ -1,4 +1,4 @@
-import BanInterface from "@/api/interface/ban.interface";
+import BanInterface from '@/api/interface/ban.interface'
 
 export default interface UserInterface {
     avatar: string

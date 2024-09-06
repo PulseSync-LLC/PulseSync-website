@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://pulsesync.dev</loc><lastmod>2024-07-28T20:08:21.225Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://pulsesync.dev/callback</loc><lastmod>2024-07-28T20:08:21.225Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://pulsesync.dev/privacy</loc><lastmod>2024-07-28T20:08:21.225Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://pulsesync.dev/terms</loc><lastmod>2024-07-28T20:08:21.225Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://pulsesync.dev/en/terms</loc><lastmod>2024-07-28T20:08:21.225Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://pulsesync.dev/en</loc><lastmod>2024-07-28T20:08:21.225Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://pulsesync.dev/en/callback</loc><lastmod>2024-07-28T20:08:21.225Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://pulsesync.dev/en/privacy</loc><lastmod>2024-07-28T20:08:21.225Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev</loc><lastmod>2024-09-06T11:30:23.850Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/callback</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/privacy</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/subscription</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/terms</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/en</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/cn</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/en/callback</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/cn/callback</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/en/terms</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/cn/terms</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/en/privacy</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/cn/privacy</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/en/subscription</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://pulsesync.dev/cn/subscription</loc><lastmod>2024-09-06T11:30:23.851Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

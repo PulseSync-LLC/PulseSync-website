@@ -5,7 +5,7 @@
     width: 325px;
     min-width: 325px;
 
-    &>.subscription {
+    & > .subscription {
         transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.1s;
         user-select: none;
         display: flex;
@@ -23,7 +23,7 @@
             z-index: 4;
         }
 
-        &>.subscriptionName {
+        & > .subscriptionName {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -46,7 +46,7 @@
             border-radius: 999px;
         }
 
-        &>.subscriptionHeader {
+        & > .subscriptionHeader {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -54,7 +54,7 @@
             align-items: flex-start;
             padding: 15px 0px 5px;
 
-            &>.percent {
+            & > .percent {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -66,7 +66,7 @@
                 left: 0px;
                 top: 0px;
 
-                background: #FFFFFF;
+                background: #ffffff;
                 border-radius: 20px;
 
                 font-weight: 800;
@@ -78,7 +78,7 @@
                 mix-blend-mode: normal;
             }
 
-            &>.subscriptionPrice {
+            & > .subscriptionPrice {
                 font-weight: 700;
                 font-size: 38px;
                 line-height: 140%;
@@ -86,25 +86,25 @@
                 display: flex;
                 align-items: center;
 
-                color: #FFFFFF;
+                color: #ffffff;
 
                 mix-blend-mode: normal;
             }
 
-            &>.subscriptionButtons {
+            & > .subscriptionButtons {
                 display: flex;
                 flex-direction: row;
                 align-items: flex-start;
                 padding: 0px;
                 gap: 4px;
 
-                &>button {
+                & > button {
                     font-weight: 600;
                     font-size: 12px;
                     line-height: 140%;
                 }
 
-                &>.selectButtons {
+                & > .selectButtons {
                     cursor: pointer;
                     display: flex;
                     flex-direction: row;
@@ -119,7 +119,7 @@
                     border: none;
                 }
 
-                &>.activeSelectButton {
+                & > .activeSelectButton {
                     cursor: pointer;
                     display: flex;
                     flex-direction: row;
@@ -137,7 +137,7 @@
             }
         }
 
-        &>.benefits {
+        & > .benefits {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -145,7 +145,7 @@
             gap: 10px;
             height: 100%;
 
-            &>.benefit {
+            & > .benefit {
                 font-weight: 700;
                 font-size: 15px;
                 line-height: 140%;
@@ -158,13 +158,13 @@
 
                 gap: 6px;
 
-                &>svg {
+                & > svg {
                     min-width: 20px;
                 }
             }
         }
 
-        &>.getButton {
+        & > .getButton {
             cursor: pointer;
             display: flex;
             flex-direction: row;

@@ -1,4 +1,4 @@
-import UserInterface from "@/api/interface/user.interface";
+import UserInterface from '@/api/interface/user.interface'
 
 export default interface BanInterface {
     uuid: string
