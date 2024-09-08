@@ -65,7 +65,6 @@
             }
         },
         "index": {
-            "img_path": "/assets/img/1.png",
             "welcome_title": "最佳 Yandex Music 集成应用",
             "welcome_description": "PulseSync 是一个与 Yandex Music 集成的项目。该程序还支持 Yandex Music Discord RPC 状态、自定义主题和脚本。",
             "coming_soon": "即将推出",

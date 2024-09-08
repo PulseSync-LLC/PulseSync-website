@@ -8,10 +8,10 @@ import Layout from '@/components/layout'
 import PriceContainer from '@/components/pricecontainer'
 import { useTranslation } from 'next-i18next'
 
-export default function Privacy() {
+export default function Subscription() {
     const { t } = useTranslation('common')
     return (
-        <Layout title="Пользовательское соглашение">
+        <Layout title="Подписка">
             <div className="mainContainer">
                 <div className={styles.contentCase}>
                     <div

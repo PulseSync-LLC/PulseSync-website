@@ -65,7 +65,6 @@
             }
         },
         "index": {
-            "img_path": "/assets/img/1.png",
             "welcome_title": "The best app for Yandex Music integration",
             "welcome_description": "PulseSync is a project that integrates with Yandex Music. The program also supports Yandex Music Discord RPC status, custom themes, and scripts.",
             "coming_soon": "Coming soon",
