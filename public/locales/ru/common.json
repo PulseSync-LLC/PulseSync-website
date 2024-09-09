@@ -2,8 +2,8 @@
     "components": {
         "header": {
             "home": "главная",
-            "subscription": "подписка",
-            "login": "войти"
+            "subscription": "подписки",
+            "login": "войти(скоро)"
         },
         "subscription": {
             "tYT": "Спасибо за поддержку PulseSync!",

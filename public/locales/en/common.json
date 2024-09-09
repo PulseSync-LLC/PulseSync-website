@@ -2,8 +2,8 @@
     "components": {
         "header": {
             "home": "Home",
-            "subscription": "Subscription",
-            "login": "Login"
+            "subscription": "Subscriptions",
+            "login": "Login(soon)"
         },
         "subscription": {
             "tYT": "Thank you for supporting PulseSync!",

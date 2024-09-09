@@ -9,21 +9,23 @@ import {
 import { useTranslation } from 'next-i18next'
 
 interface Subscription {
+    secretcard?: boolean
     name: string
+    disableSelection?: boolean
     priceMonthly: string
     priceYearly: string
     benefits: string[]
     colors: string[]
-    secretcard?: boolean
 }
 
 const PriceContainer: React.FC = () => {
-    const { t } = useTranslation('common')
-
+    const { t, i18n } = useTranslation('common')
+    const [isMonthly, setIsMonthly] = useState(true)
     const subscriptions: Subscription[] = [
         {
             secretcard: false,
             name: 'Free',
+            disableSelection: true,
             priceMonthly: t('components.subscription.plans.free'),
             priceYearly: t('components.subscription.plans.free'),
             benefits: [
@@ -38,6 +40,7 @@ const PriceContainer: React.FC = () => {
         {
             secretcard: false,
             name: 'Basic',
+            disableSelection: false,
             priceMonthly: t('components.subscription.plans.basicMonthly'),
             priceYearly: t('components.subscription.plans.basicYearly'),
             benefits: [
@@ -56,6 +59,7 @@ const PriceContainer: React.FC = () => {
         {
             secretcard: false,
             name: 'Infinite',
+            disableSelection: false,
             priceMonthly: t('components.subscription.plans.infiniteMonthly'),
             priceYearly: t('components.subscription.plans.infiniteYearly'),
             benefits: [
@@ -73,9 +77,6 @@ const PriceContainer: React.FC = () => {
             colors: ['#A493E9', '#484069', '#3B3455', '#8934F2', '#8C80BE'],
         },
     ]
-
-    const [isMonthly, setIsMonthly] = useState(true)
-
     const springProps = useSpring({
         opacity: 1,
         from: { opacity: 0, transform: 'rotateX(90deg)' },
@@ -189,28 +190,34 @@ const PriceContainer: React.FC = () => {
                                         ? subscription.priceMonthly
                                         : subscription.priceYearly}
                                 </animated.div>
-                                <div className={styles.subscriptionButtons}>
-                                    <button
-                                        className={
-                                            isMonthly
-                                                ? styles.activeSelectButton
-                                                : styles.selectButtons
-                                        }
-                                        onClick={() => setIsMonthly(true)}
-                                    >
-                                        {t('components.subscription.perMonth')}
-                                    </button>
-                                    <button
-                                        className={
-                                            !isMonthly
-                                                ? styles.activeSelectButton
-                                                : styles.selectButtons
-                                        }
-                                        onClick={() => setIsMonthly(false)}
-                                    >
-                                        {t('components.subscription.perYear')}
-                                    </button>
-                                </div>
+                                {!subscription.disableSelection && (
+                                    <div className={styles.subscriptionButtons}>
+                                        <button
+                                            className={
+                                                isMonthly
+                                                    ? styles.activeSelectButton
+                                                    : styles.selectButtons
+                                            }
+                                            onClick={() => setIsMonthly(true)}
+                                        >
+                                            {t(
+                                                'components.subscription.perMonth',
+                                            )}
+                                        </button>
+                                        <button
+                                            className={
+                                                !isMonthly
+                                                    ? styles.activeSelectButton
+                                                    : styles.selectButtons
+                                            }
+                                            onClick={() => setIsMonthly(false)}
+                                        >
+                                            {t(
+                                                'components.subscription.perYear',
+                                            )}
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                             <div className={styles.benefits}>
                                 {subscriptions
