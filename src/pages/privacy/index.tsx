@@ -13,7 +13,7 @@ export default function Privacy() {
                             <div>
                                 <div className={policy.header}>
                                     <div className={policy.date}>
-                                        29.06.2024
+                                        09.09.2024
                                     </div>
                                     <div className={policy.title}>
                                         Политика в отношении обработки
@@ -34,7 +34,7 @@ export default function Privacy() {
                                         порядок обработки персональных данных и
                                         меры по обеспечению безопасности
                                         персональных данных, предпринимаемые
-                                        PulseSync LLC (далее — Оператор).
+                                        ИП «Деднев Григорий Дмитриевич» (далее — Оператор).
                                     </div>
                                     <div>
                                         1.1. Оператор ставит своей важнейшей
