@@ -44,7 +44,7 @@
             "politics": "Policy",
             "terms": "Terms of Service",
             "privacy": "Privacy Policy",
-            "cookies": "Cookie"
+            "security": "Security Policy"
         },
         "errors": {
             "forbiddenBan": "Access denied, oops :)",

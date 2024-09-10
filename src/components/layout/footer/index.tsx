@@ -107,12 +107,12 @@ export const Footer = () => {
                             {t('components.footer.privacy')}
                         </Link>
                         <Link
-                            href={'/cookies'}
+                            href={'/security'}
                             className={`${styles.footerRightLink}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {t('components.footer.cookies')}
+                            {t('components.footer.security')}
                         </Link>
                     </div>
                 </div>
