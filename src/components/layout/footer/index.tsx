@@ -78,7 +78,7 @@ export const Footer = () => {
                             {t('components.footer.wiki')}
                         </Link>
                         <Link
-                            href={'/status'}
+                            href={'https://status.pulsesync.dev/status/pulsesync'}
                             className={`${styles.footerRightLink}`}
                             target="_blank"
                             rel="noopener noreferrer"
