@@ -1,11 +1,13 @@
 import BanInterface from '@/api/interface/ban.interface'
 
 export default interface UserInterface {
-    avatar: string
-    createdAt: number
     id: string
-    nickname: string
-    perms: string
+    avatar: string
+    banner: string
     username: string
-    ban: BanInterface
+    perms: string
+    createdAt: number
+    nickname: string
+    ban?: BanInterface
+    badges: string[]
 }

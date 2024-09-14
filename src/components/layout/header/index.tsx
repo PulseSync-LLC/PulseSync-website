@@ -3,8 +3,11 @@ import Link from 'next/link'
 import Logo from '../../../../public/assets/miniLogo.svg'
 import Image from 'next/image'
 import React from 'react'
+import { useContext } from 'react';
+import UserContext from '@/api/context/user.context';
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
+import UserInitials from '@/api/interface/user.initials'
 
 interface Cosmetic {
     backgroundHex?: string
@@ -20,7 +23,7 @@ const Header: React.FC<Cosmetic> = ({
     linksHover = '#c3d2ff',
 }) => {
     const router = useRouter()
-
+    const { user, setUser } = useContext(UserContext);
     const { t } = useTranslation('common')
 
     const getLinkClass = (path: string) => {
@@ -28,6 +31,13 @@ const Header: React.FC<Cosmetic> = ({
             ? `${styles.links} ${styles.active}`
             : styles.links
     }
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setUser(UserInitials);
+        window.location.href = '/';
+    };
 
     return (
         <>
@@ -64,9 +74,19 @@ const Header: React.FC<Cosmetic> = ({
                         </div>
                     </div>
                     <div className={styles.rightSide}>
-                        <Link href="/" className={getLinkClass('/login')}>
-                            {t('components.header.login')}
-                        </Link>
+                        {user.id !== '-1' ? (
+                            <div className={styles.userProfile}>
+                                <img src={user.avatar} alt={user.username} className={styles.avatar} />
+                                <span className={styles.username}>{user.username}</span>
+                                <button onClick={handleLogout} className={styles.logoutButton}>
+                                    Logout
+                                </button>
+                            </div>
+                        ) : (
+                            <Link href="/login" className={getLinkClass('/login')}>
+                                {t('components.header.login')}
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>

@@ -3,15 +3,15 @@ import styles from '@/styles/Callback.module.scss'
 import { Trans, useTranslation } from 'next-i18next'
 import ErrorConnect from '../../../public/assets/authAssest/ErrorConnect.svg'
 import ImgConnect from '../../../public/assets/authAssest/Connect.svg'
-import Logo from '../../../public/assets/fullLogo.svg'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import UserInterface from '@/api/interface/user.interface'
 import UserInitials from '@/api/interface/user.initials'
 import config from '@/api/config'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Layout from '@/components/layout'
+import UserContext from '@/api/context/user.context'
 
 export default function Callback() {
     const router = useRouter()
@@ -20,36 +20,57 @@ export default function Callback() {
     const [loading, setLoading] = useState(true)
     const [isBeta, setBeta] = useState(false)
     const { t } = useTranslation('common')
+    const { setUser: setContextUser } = useContext(UserContext)
 
     const getUser = async () => {
         if (router.query.token && router.query.id) {
-            const res = await fetch(
-                `${config.SERVER_URL}/user/${router.query.id}`,
-            )
-            if (!res.ok) return setError(true)
-            const j = await res.json()
-            setUser(j.user)
+            try {
+                const res = await fetch(`${config.SERVER_URL}/user/${router.query.id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${router.query.token}`,
+                    },
+                });
+                if (!res.ok) {
+                    setError(true);
+                    return;
+                }
+                const j = await res.json();
+                setUser(j.user);
+                localStorage.setItem('token', router.query.token as string);
+                localStorage.setItem('user', JSON.stringify(j.user));
+                setContextUser(j.user);
+
+                if (j.user && j.user.id !== '-1') {
+                    router.push('/');
+                }
+            } catch (err) {
+                setError(true);
+            }
         } else {
-            return setError(true)
+            setError(true);
         }
-    }
+    };
 
     const checkIsBeta = async (id: string) => {
-        const res = await fetch(`${config.SERVER_URL}/api/v1/user/${id}/access`)
+        const res = await fetch(`${config.SERVER_URL}/api/v1/user/${id}/access`, {
+            headers: {
+                'Authorization': `Bearer ${router.query.token}`,
+            },
+        });
         if (res.ok) {
-            const data = await res.json()
+            const data = await res.json();
             if (data.access) {
-                setBeta(true)
-                await router.push(
-                    `pulsesync://callback?token=${router.query.token}&id=${router.query.id}`,
-                )
+                setBeta(true);
+                await router.push(`pulsesync://callback?token=${router.query.token}&id=${router.query.id}`);
             }
-            setLoading(false)
+            setLoading(false);
         }
-    }
+    };
 
     useEffect(() => {
-        if (router.isReady) getUser()
+        if (router.isReady) {
+            getUser()
+        }
     }, [router.isReady])
 
     useEffect(() => {
@@ -137,27 +158,27 @@ export default function Callback() {
                                                 {user.ban
                                                     ? t('components.errors.ban')
                                                     : !isBeta
-                                                      ? t(
+                                                        ? t(
                                                             'components.errors.noBeta',
                                                         )
-                                                      : null}
+                                                        : null}
                                             </span>
                                             <span>
                                                 {error
                                                     ? t(
-                                                          'components.errors.error',
-                                                      )
+                                                        'components.errors.error',
+                                                    )
                                                     : user.ban
-                                                      ? t(
+                                                        ? t(
                                                             'components.errors.forbiddenBan',
                                                         )
-                                                      : !isBeta
-                                                        ? t(
-                                                              'components.errors.forbidden',
-                                                          )
-                                                        : t(
-                                                              'pages.callback.auth.success',
-                                                          )}
+                                                        : !isBeta
+                                                            ? t(
+                                                                'components.errors.forbidden',
+                                                            )
+                                                            : t(
+                                                                'pages.callback.auth.success',
+                                                            )}
                                             </span>
                                         </div>
                                     </div>
@@ -195,14 +216,14 @@ export default function Callback() {
                 </div>
             </div>
         </Layout>
-    )
+    );
 }
+
 // @ts-ignore
 export async function getStaticProps({ locale }) {
     return {
         props: {
             ...(await serverSideTranslations(locale, ['common'])),
-            // Will be passed to the page component as props
         },
-    }
+    };
 }

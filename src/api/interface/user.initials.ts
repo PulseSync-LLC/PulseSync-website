@@ -5,9 +5,12 @@ const UserInitials: UserInterface = {
     avatar: '',
     createdAt: 0,
     id: '-1',
-    nickname: '',
-    perms: '',
+    banner: '',
     username: '',
+    nickname: '',
+    perms: 'default',
     ban: BanInitials,
-}
+    badges: [],
+};
+
 export default UserInitials
