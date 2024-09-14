@@ -3,7 +3,7 @@
         "header": {
             "home": "Home",
             "subscription": "Subscriptions",
-            "login": "Login(soon)"
+            "login": "Login"
         },
         "subscription": {
             "tYT": "Thank you for supporting PulseSync!",

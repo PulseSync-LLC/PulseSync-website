@@ -3,7 +3,7 @@
         "header": {
             "home": "главная",
             "subscription": "подписки",
-            "login": "войти(скоро)"
+            "login": "войти"
         },
         "subscription": {
             "tYT": "Спасибо за поддержку PulseSync!",
