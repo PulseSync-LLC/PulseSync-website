@@ -1,4 +1,4 @@
-const isDev = false
+const isDev = true
 
 export default {
     YANDEX_METRIK: 97806602,

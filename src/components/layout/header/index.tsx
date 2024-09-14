@@ -8,6 +8,7 @@ import UserContext from '@/api/context/user.context';
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import UserInitials from '@/api/interface/user.initials'
+import { MdExitToApp, MdInput } from 'react-icons/md'
 
 interface Cosmetic {
     backgroundHex?: string
@@ -79,12 +80,12 @@ const Header: React.FC<Cosmetic> = ({
                                 <img src={user.avatar} alt={user.username} className={styles.avatar} />
                                 <span className={styles.username}>{user.username}</span>
                                 <button onClick={handleLogout} className={styles.logoutButton}>
-                                    Logout
+                                    <MdExitToApp size={22}/>
                                 </button>
                             </div>
                         ) : (
-                            <Link href="/login" className={getLinkClass('/login')}>
-                                {t('components.header.login')}
+                            <Link href="/login" className={`${getLinkClass('/login')} ${styles.login}`}>
+                                {t('components.header.login')} <MdInput size={22}/>
                             </Link>
                         )}
                     </div>
