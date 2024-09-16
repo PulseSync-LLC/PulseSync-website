@@ -39,9 +39,12 @@ export default function Callback() {
                 localStorage.setItem('token', router.query.token as string);
                 localStorage.setItem('user', JSON.stringify(j.user));
                 setContextUser(j.user);
-
+    
+                const redirectPath = localStorage.getItem('redirectAfterLogin') || '/';
+    
                 if (j.user && j.user.id !== '-1') {
-                    router.push('/');
+                    router.push(redirectPath);
+                    localStorage.removeItem('redirectAfterLogin');
                 }
             } catch (err) {
                 setError(true);
@@ -50,6 +53,7 @@ export default function Callback() {
             setError(true);
         }
     };
+    
 
     const checkIsBeta = async (id: string) => {
         const res = await fetch(`${config.SERVER_URL}/api/v1/user/${id}/access`, {

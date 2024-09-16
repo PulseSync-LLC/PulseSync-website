@@ -4,7 +4,7 @@
     align-items: center;
     padding: 0px;
 
-    background: #171921;
+    background: var(--backgroundFooter);
 
     & > .footerContent {
         display: flex;
@@ -76,16 +76,16 @@
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 22px;
-                    background: #171921;
-                    outline: 0px solid #171921;
-                    border-radius: 5px;
+                    background: var(--backgroundFooter);
+                    outline: 0px solid var(--backgroundFooter);
+                    border-radius: 4px;
 
                     color: #becbff;
                     &:hover {
                         color: #fff;
                         background: #2d57c7;
                         outline: 5px solid #2d57c7;
-                        border-radius: 5px;
+                        border-radius: 4px;
                     }
                 }
             }

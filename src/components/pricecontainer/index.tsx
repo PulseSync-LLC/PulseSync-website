@@ -166,7 +166,7 @@ const PriceContainer: React.FC = () => {
                                 '--linksColor2': subscription.colors[2],
                                 '--linksColor3': subscription.colors[3],
                                 '--linksColor4': subscription.colors[4],
-                                background: `linear-gradient(0deg, #292C36 0%, rgba(41, 44, 54, 0.9) 100%), var(--linksColor3)`,
+                                background: `linear-gradient(0deg, var(--backgroundFooter) 0%, rgba(41, 44, 54, 0.9) 100%), var(--linksColor3)`,
                                 backgroundSize: 'cover',
                             } as React.CSSProperties
                         }

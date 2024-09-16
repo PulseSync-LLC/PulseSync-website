@@ -50,28 +50,38 @@
                 padding: 0px;
                 gap: 7px;
 
-                &>.avatar {
-                    width: 32px;
-                    height: 32px;
-
-                    border-radius: 100%;
-                }
-
                 &>.username {
+                    display: flex;
                     font-weight: 800;
                     font-size: 16px;
                     line-height: 140%;
+                    align-items: center;
 
                     color: #FFFFFF;
+
+                    &>.avatar {
+                        width: 32px;
+                        height: 32px;
+
+                        border-radius: 100%;
+                    }
                 }
 
                 &>.logoutButton {
+                    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                     display: flex;
                     cursor: pointer;
                     color: #FF7D7D;
                     padding: 0;
                     border: 0;
                     background: transparent;
+
+                    &:hover {
+                        color: #441818 !important;
+                        background: #FF7D7D;
+                        outline: 5px solid #FF7D7D;
+                        border-radius: 4px;
+                    }
                 }
             }
 
@@ -89,7 +99,7 @@
     line-height: 22px;
     background: transparent;
     outline: 0px solid transparent;
-    border-radius: 5px;
+    border-radius: 4px;
     padding: 0 3px;
     gap: 7px;
 
@@ -99,7 +109,7 @@
         color: #fff !important;
         background: #2d57c7;
         outline: 5px solid #2d57c7;
-        border-radius: 5px;
+        border-radius: 4px;
     }
 }
 

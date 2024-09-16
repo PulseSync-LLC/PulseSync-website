@@ -11,9 +11,9 @@ import { useTranslation } from 'next-i18next'
 export default function Subscription() {
     const { t } = useTranslation('common')
     return (
-        <Layout title="Подписка">
+        <Layout title="Подписка" headerColor='#111318' backgroundBody='#0a0b0e' backgroundFooter='#0e0f14'>
             <div className="mainContainer">
-                <div className={styles.contentCase}>
+                <div className={sub.contentCase}>
                     <div
                         className={`${sub.contentCaseSizeble} ${sub.gradient}`}
                     >

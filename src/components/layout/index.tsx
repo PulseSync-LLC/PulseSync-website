@@ -1,6 +1,6 @@
 import Header from './header'
 import { Footer } from './footer'
-import React, { ReactNode, useCallback } from 'react'
+import React, { ReactNode } from 'react'
 import Head from 'next/head'
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
     image?: string
     background?: string
     backgroundBody?: string
+    backgroundFooter?: string
 
     headerColor?: string
     headerLinksColor?: string
@@ -31,6 +32,7 @@ const Layout: React.FC<Props> = ({
     description,
     image,
     backgroundBody = '#14151C',
+    backgroundFooter = '#171921',
     headerColor,
     headerLinksColor,
     headerLinksColorActive,
@@ -77,6 +79,7 @@ const Layout: React.FC<Props> = ({
                 <style>{`
                 :root {
                     --backgroundBody: ${backgroundBody};
+                    --backgroundFooter: ${backgroundFooter};
                 }
 
                 html, body {

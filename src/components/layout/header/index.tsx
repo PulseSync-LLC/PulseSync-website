@@ -18,7 +18,7 @@ interface Cosmetic {
 }
 
 const Header: React.FC<Cosmetic> = ({
-    backgroundHex = '#1E2027',
+    backgroundHex = '#171821',
     linksColor = '#FFFFFF',
     linksColorActive = '#A4BAFF',
     linksHover = '#c3d2ff',
@@ -77,15 +77,17 @@ const Header: React.FC<Cosmetic> = ({
                     <div className={styles.rightSide}>
                         {user.id !== '-1' ? (
                             <div className={styles.userProfile}>
-                                <img src={user.avatar} alt={user.username} className={styles.avatar} />
-                                <span className={styles.username}>{user.username}</span>
+                                <Link href="/dashboard" className={`${getLinkClass('/dashboard')} ${styles.username}`}>
+                                    <img src={user.avatar} alt={user.username} className={styles.avatar} />
+                                    {user.username}
+                                </Link>
                                 <button onClick={handleLogout} className={styles.logoutButton}>
-                                    <MdExitToApp size={22}/>
+                                    <MdExitToApp size={22} />
                                 </button>
                             </div>
                         ) : (
                             <Link href="/login" className={`${getLinkClass('/login')} ${styles.login}`}>
-                                {t('components.header.login')} <MdInput size={22}/>
+                                {t('components.header.login')} <MdInput size={22} />
                             </Link>
                         )}
                     </div>

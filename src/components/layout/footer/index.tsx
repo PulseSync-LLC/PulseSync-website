@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import styles from '@/styles/Footer.module.scss'
 import Link from 'next/link'
-import Logo from '../../../../public/assets/miniLogoFooter.svg'
+import Logo from 'public/assets/miniLogoFooter.svg'
 import { useTranslation } from 'next-i18next'
 
 export const Footer = () => {
     const { t } = useTranslation('common')
 
     return (
-        <div className={`${styles.footerCase}`}>
+        <div className={styles.footerCase}>
             <div className={`${styles.footerContent}`}>
                 <div className={`${styles.footerLeft}`}>
                     <Image

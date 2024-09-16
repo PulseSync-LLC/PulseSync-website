@@ -12,12 +12,14 @@ import UserInitials from '@/api/interface/user.initials';
 import { Socket } from 'socket.io-client';
 import io from 'socket.io-client';
 import UserInterface from '@/api/interface/user.interface';
+import { useRouter } from 'next/router'
 
 function App({ Component, pageProps }: AppProps) {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<UserInterface>(UserInitials);
     const [socket, setSocket] = useState<Socket | null>(null);
     const [socketConnected, setSocketConnected] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -66,6 +68,12 @@ function App({ Component, pageProps }: AppProps) {
             socketInstance.disconnect();
         };
     }, []);
+
+    useEffect(() => {
+        if (router.pathname !== '/login' && router.pathname !== '/callback') {
+            localStorage.setItem('redirectAfterLogin', router.asPath);
+        }
+    }, [router.pathname]);
 
     return (
         <UserContext.Provider value={{ user, setUser, loading, socket, socketConnected }}>

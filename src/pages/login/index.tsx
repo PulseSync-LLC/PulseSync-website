@@ -8,9 +8,15 @@ export default function Login() {
     const router = useRouter();
 
     useEffect(() => {
+        const redirectAfterLogin = localStorage.getItem('redirectAfterLogin') || '/';
+
         if (user.id !== '-1') {
-            router.push('/dashboard');
+            router.push(redirectAfterLogin);
+            localStorage.removeItem('redirectAfterLogin');
         } else {
+            if (router.asPath !== '/login') {
+                localStorage.setItem('redirectAfterLogin', router.asPath);
+            }
             window.location.href = `${config.SERVER_URL}/auth/discord`;
         }
     }, [user, router]);
