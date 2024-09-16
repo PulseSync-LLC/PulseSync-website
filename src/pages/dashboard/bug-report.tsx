@@ -3,9 +3,9 @@ import { ReactNode } from 'react';
 
 const BugReportPage: React.FC = () => {
     return (
-        <Dashboard title="Bug Report" description="Сообщить об ошибке">
+        <Dashboard title="Сообщить об ошибке" description="Сообщить об ошибке">
             <div>
-                <h1>Bug Report</h1>
+                <h1>Сообщить об ошибке</h1>
                 <p>В разработке.</p>
             </div>
         </Dashboard>
