@@ -64,12 +64,18 @@
                             }
 
                             &>.userperms {
-                                font-weight: 400;
+                                font-weight: 800;
                                 font-size: 12px;
                                 line-height: 140%;
                                 letter-spacing: 0.01em;
+                                
+                                color: #14151c;
+                                background: #ffffff;
 
-                                color: #90A9EA;
+                                text-transform: capitalize;
+                                width: fit-content;
+                                padding: 0 8px;
+                                border-radius: 74px;
                             }
                         }
                     }

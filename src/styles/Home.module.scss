@@ -55,6 +55,7 @@
     }
 
     .downloadButton {
+      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -64,7 +65,7 @@
 
       background: #3468F2;
       border: 0;
-      border-radius: 101px;
+      border-radius: 8px;
 
 
       font-weight: 700;
@@ -80,6 +81,13 @@
 
       &:disabled {
         cursor: not-allowed;
+        background: #284eb6;
+        color: #ecf1ff;
+
+        &:hover {
+          background: #1e3a88;
+          color: #ecf1ff;
+        }
       }
     }
   }
@@ -157,6 +165,7 @@
       justify-content: center;
 
       .avatar {
+        transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -165,6 +174,7 @@
         align-content: center;
         padding: 0px;
         gap: 4px;
+        border-radius: 24px;
 
         a {
           display: flex;
@@ -178,13 +188,13 @@
             width: 85px;
             height: 85px;
 
-            border-radius: 20px;
+            border-radius: 22px;
           }
         }
 
         &:hover {
           outline: 2px solid #ffffff;
-          border-radius: 22px;
+          border-radius: 24px;
           z-index: 122;
         }
       }

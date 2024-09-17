@@ -25,7 +25,7 @@ const PriceContainer: React.FC = () => {
         {
             secretcard: false,
             name: 'Free',
-            disableSelection: true,
+            disableSelection: false,
             priceMonthly: t('components.subscription.plans.free'),
             priceYearly: t('components.subscription.plans.free'),
             benefits: [
